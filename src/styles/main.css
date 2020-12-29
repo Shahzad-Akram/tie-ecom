@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+/* === */
+
+.react-multiple-carousel__arrow--left {
+  left: 0 !important;
+}
+
+.react-multiple-carousel__arrow--right {
+  right: 0 !important;
+}
+
+.es-btn-overlay-1:hover .es-overlay-1 {
+  height: 40px;
+  opacity: 1;
+  transition: all 0.3s ease-in;
+}
+
+.es-overlay-1 {
+  transition: all 0.3s ease-out;
+  height: 0;
+  opacity: 0;
+}
+
+a {
+  color: #888;
+}
+
+a:hover {
+  color: #333;
+}
+
+a:active,
+a:focus {
+  color: #000;
+}
