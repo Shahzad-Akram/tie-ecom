@@ -38,3 +38,7 @@ a:active,
 a:focus {
   color: #000;
 }
+
+.es-bg-1 {
+  background-color: #e387c8;
+}

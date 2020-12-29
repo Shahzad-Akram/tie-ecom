@@ -110,12 +110,39 @@ const cardArr = [
     price: '$12',
     discount: '20%',
   },
+  {
+    image:
+      'https://s3.amazonaws.com/redqteam.com/pickbazar/Roadstar_solid_top.jpg',
+    name: 'Roadster Women Solid Top',
+    stock: '1 pc(s)',
+    minusPrice: '$15',
+    price: '$12',
+    discount: '20%',
+  },
+  {
+    image:
+      'https://s3.amazonaws.com/redqteam.com/pickbazar/Roadstar_solid_top.jpg',
+    name: 'Roadster Women Solid Top',
+    stock: '1 pc(s)',
+    minusPrice: '$15',
+    price: '$12',
+    discount: '20%',
+  },
+  {
+    image:
+      'https://s3.amazonaws.com/redqteam.com/pickbazar/Roadstar_solid_top.jpg',
+    name: 'Roadster Women Solid Top',
+    stock: '1 pc(s)',
+    minusPrice: '$15',
+    price: '$12',
+    discount: '20%',
+  },
 ];
 
 export const ShopPage = () => {
   return (
     <section>
-      <div className='p-5 my-5 text-center'>
+      <div className='py-5 my-5 text-center'>
         <h1>
           <i>Shop</i>
         </h1>
@@ -128,7 +155,7 @@ export const ShopPage = () => {
       <div className='row'>
         <div className='col-lg-2 bg-white border-right'>Sidebar</div>
         <div className='col bg-light p-4'>
-          <div className='row row-cols-1 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5 justify-content-center'>
+          <div className='row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 justify-content-center'>
             {cardArr.map((cardArr) => (
               <Link className='col text-decoration-none small bg-white pb-3 rounded-3 m-3 d-flex flex-column'>
                 <div className='position-relative'>
