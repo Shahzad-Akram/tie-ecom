@@ -42,3 +42,40 @@ a:focus {
 .es-bg-1 {
   background-color: #e387c8;
 }
+
+/* == */
+
+.btn-bt-box-1 {
+  background-color: #eee;
+  position: relative;
+}
+
+.btn-bt-box-1:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 0.05rem #666;
+  transition: all 0.3s ease;
+}
+
+.btn-bt-box-1:hover .bt-box-1__item {
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.btn-bt-box-1:focus .bt-box-1__item {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.bt-box-1__item {
+  opacity: 0;
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.bt-box-1__item .fa-xs {
+  font-size: 0.6em;
+}
+
+/* == */
