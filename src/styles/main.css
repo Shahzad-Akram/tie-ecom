@@ -34,16 +34,31 @@ a:hover {
   color: #333;
 }
 
+a.active,
 a:active,
 a:focus {
   color: #000;
+}
+
+.btn-check:focus + .btn,
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.5);
 }
 
 .es-bg-1 {
   background-color: #e387c8;
 }
 
-/* == */
+/* === */
+
+.stepper-container a,
+.stepper-container span {
+  line-height: 30px !important;
+  font-weight: 600 !important;
+}
+
+/* === */
 
 .btn-bt-box-1 {
   background-color: #eee;
