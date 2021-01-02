@@ -78,4 +78,19 @@ a:focus {
   font-size: 0.6em;
 }
 
-/* == */
+.moveOrderBox {
+  position: fixed;
+  top: unset;
+  left: unset;
+  right: unset;
+  width: 210px;
+  z-index: 1030;
+  transition: all 0.3s ease;
+}
+
+@media only screen and (max-width: 992px) {
+  .moveOrderBox {
+    position: unset !important;
+    width: 100%;
+  }
+}

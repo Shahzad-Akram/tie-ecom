@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Compoent
 import { DeliveryAddressComponent } from '../../components/checkout/DeliveryAddressComponent';
@@ -10,6 +10,18 @@ import { PaymentOptionComponent } from '../../components/checkout/PaymentOptionC
 import EmptyBox from '../../assets/images-svg/empty.svg';
 
 export const Checkout = () => {
+  const [moveOrderBox, setMoveOrderBox] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setMoveOrderBox(true);
+    } else {
+      setMoveOrderBox(false);
+    }
+  };
+
+  window.addEventListener('scroll', changeBackground);
+
   return (
     <section className='container'>
       <form>
@@ -20,8 +32,11 @@ export const Checkout = () => {
             <ContactNumberComponent />
             <PaymentOptionComponent />
           </div>
-          <div className='col-9 col-md-4 col-lg-3 col-xl-2 order-first order-lg-last mb-4 mb-lg-0'>
-            <div>
+          <div
+            className='order-first order-lg-last mb-4 mb-lg-0'
+            style={{ width: 240 }}
+          >
+            <div className={moveOrderBox ? `moveOrderBox` : ``}>
               <h6 className='text-center fw-bold mb-4'>Your order</h6>
 
               <div className='small'>

@@ -1,12 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Carousel from 'react-multi-carousel';
+import { CustomModal } from '../custom/CustomModal';
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export const PaymentOptionComponent = () => {
+  const [modal, setModal] = useState(false);
   return (
     <div className='bg-light shadow-sm rounded-3 p-4 mb-4'>
+      {modal ? (
+        <CustomModal>
+          <header className='d-flex justify-content-between align-items-center mb-3'>
+            <h6 className='mb-0 fw-bold'>Enter card info</h6>
+            <button
+              type='button'
+              className='btn p-0'
+              onClick={() => setModal(false)}
+            >
+              <h3 className='mb-0'>&times;</h3>
+            </button>
+          </header>
+          <section>
+            <input
+              className='form-control mb-4'
+              type='text'
+              placeholder='Card number'
+            />
+
+            <button
+              type='button'
+              onClick={() => setModal(false)}
+              className='btn btn-dark w-100'
+            >
+              Pay Now
+            </button>
+          </section>
+        </CustomModal>
+      ) : null}
       <div className='d-flex align-items-center mb-3'>
         <span className='badge bg-dark rounded-circle'>4</span>
         <h6 className='text-capitalize ms-2 mb-0 fw-bold'>Payment Option</h6>
@@ -16,7 +47,11 @@ export const PaymentOptionComponent = () => {
         <h6 className='ms-2 mb-0 fw-bold text-capitalize'>
           <small>Saved Cards</small>
         </h6>
-        <button className='btn p-1 ms-auto text-capitalize'>
+        <button
+          type='button'
+          onClick={() => setModal(true)}
+          className='btn p-1 ms-auto text-capitalize'
+        >
           <small>+ Add Card</small>
         </button>
       </div>
