@@ -103,6 +103,21 @@ a:focus {
   transition: all 0.3s ease;
 }
 
+/* == */
+
+.checkout-bar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  height: 100%;
+  width: 350px;
+  background-color: #fdf7f7;
+  box-shadow: 0 0 0.5rem #ddd;
+}
+
 @media only screen and (max-width: 992px) {
   .moveOrderBox {
     position: unset !important;
