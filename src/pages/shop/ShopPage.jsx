@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faIgloo } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 // Images
@@ -155,13 +155,39 @@ const checkoutItem = [
 ];
 
 export const ShopPage = () => {
+  const [checkoutBar, setCheckoutBar] = useState(false);
+  const [counterButton, setCounterButton] = useState(true);
+  const [showCounter, setShowCounter] = useState(false);
+  const [count, setCount] = useState(0);
   return (
     <section>
       {/* Checkout Bar Start */}
-      <div className='checkout-bar'>
+      <button
+        type='button'
+        className='checkout-btn-container position-fixed bottom-50 end-0 btn btn-dark p-2 rounded-3'
+        style={{ zIndex: 555 }}
+        onClick={() => setCheckoutBar(!checkoutBar)}
+      >
+        <div className='small mb-2'>
+          <FontAwesomeIcon icon={faCartPlus} />
+          <span className='ms-2 small fw-bold'>1 item</span>
+        </div>
+        <div className='bg-white shadow-sm p-1 rounded-3 small text-black-50'>
+          $1.50
+        </div>
+      </button>
+
+      <div
+        className={
+          checkoutBar ? `checkout-bar` : `checkout-bar checkout-bar-hide`
+        }
+      >
         <header className='d-flex align-items-baseline justify-content-between pt-2 pb-3 mb-3 border-bottom px-3'>
           <div>1 item</div>
-          <Link className='text-decoration-none'>
+          <Link
+            className='text-decoration-none'
+            onClick={() => setCheckoutBar(false)}
+          >
             <div className='h4 mb-0'>&times;</div>
           </Link>
         </header>
@@ -176,9 +202,28 @@ export const ShopPage = () => {
           {/* End */}
           {/* Item */}
           {checkoutItem.map((value) => (
-            <div className='mb-3 d-flex justify-content-between small'>
-              <span className='mr-2'>1</span>
-              <span className='mr-2 text-black-50 small'>
+            <div className='mb-3 d-flex align-items-center justify-content-between small'>
+              <div className='border border-dark rounded-pill d-flex flex-column justify-content-around align-items-center me-2 px-2'>
+                <button
+                  className='btn p-0'
+                  onClick={() => setCount((prevCount) => prevCount + 1)}
+                  style={{ boxShadow: 'unset' }}
+                >
+                  <span className='h6 mb-0'>+</span>
+                </button>
+                <span className='mt-1 mx-1 small'>{count}</span>
+                <button
+                  className='btn p-0'
+                  style={{ boxShadow: 'unset' }}
+                  onClick={() => {
+                    setCount((prevCount) => prevCount - 1);
+                  }}
+                >
+                  <span className='h4 mb-0'>-</span>
+                </button>
+              </div>
+
+              <span className='me-2 text-black-50 small'>
                 <img
                   height={50}
                   width={50}
@@ -186,7 +231,7 @@ export const ShopPage = () => {
                   alt={value.name}
                 />
               </span>
-              <span className='mr-2 small'>
+              <span className='me-2 small'>
                 <div className='text-capitalize'>{value.name}</div>
                 <div className='fw-bold'>{value.price}</div>
                 <div className='text-black-50'>{value.stock}</div>
@@ -215,6 +260,7 @@ export const ShopPage = () => {
           </div>
         </footer>
       </div>
+
       {/* Checkout Bar End */}
       <div className='py-5 my-5 text-center'>
         <h1>
@@ -250,10 +296,45 @@ export const ShopPage = () => {
                 </i>
                 <div className='d-flex align-items-baseline justify-content-between mt-auto'>
                   <span className='fw-bold'>{cardArr.price}</span>
-                  <button className='btn btn-sm btn-light rounded-pill'>
-                    <FontAwesomeIcon icon={faCartPlus} />
-                    <span className='ms-2 small fw-bold'>Cart</span>
-                  </button>
+                  {/* -- */}
+                  <div>
+                    {counterButton ? (
+                      <button
+                        className='btn btn-sm btn-outline-dark rounded-pill m-2'
+                        onClick={() => {
+                          setCounterButton(false);
+                          setShowCounter(true);
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faCartPlus} />
+                        <span className='ms-2 small fw-bold'>Cart</span>
+                      </button>
+                    ) : (
+                      true
+                    )}
+                    {showCounter ? (
+                      <div className='bg-dark rounded-pill d-flex justify-content-around align-items-center'>
+                        <button
+                          className='btn py-1 text-white'
+                          style={{ boxShadow: 'unset' }}
+                          onClick={() => {
+                            setCount((prevCount) => prevCount - 1);
+                          }}
+                        >
+                          -
+                        </button>
+                        <span className='mx-1 small text-white'>{count}</span>
+                        <button
+                          className='btn py-1 text-white'
+                          onClick={() => setCount((prevCount) => prevCount + 1)}
+                          style={{ boxShadow: 'unset' }}
+                        >
+                          +
+                        </button>
+                      </div>
+                    ) : null}
+                  </div>
+                  {/* -- */}
                 </div>
               </Link>
             ))}

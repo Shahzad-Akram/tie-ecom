@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
 }
 
 /* === */
@@ -114,8 +115,17 @@ a:focus {
   z-index: 9999;
   height: 100%;
   width: 350px;
-  background-color: #fdf7f7;
+  background-color: #fff;
   box-shadow: 0 0 0.5rem #ddd;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.checkout-bar-hide {
+  z-index: -9999;
+  right: -400px;
+  opacity: 0;
+  transition: all 0.5s ease !important;
 }
 
 @media only screen and (max-width: 992px) {

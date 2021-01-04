@@ -42,6 +42,11 @@ export const Navbar = () => {
                 Checkout
               </NavLink>
             </li>
+            <li className='nav-item'>
+              <NavLink className='nav-link' to='/yourOrder'>
+                Order
+              </NavLink>
+            </li>
           </ul>
           <form className='d-flex'>
             {/* <input
