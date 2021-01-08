@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
 }
 
 /* === */
@@ -34,7 +35,102 @@ a:hover {
   color: #333;
 }
 
+a.active,
 a:active,
 a:focus {
   color: #000;
+}
+
+.btn-check:focus + .btn,
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.5);
+}
+
+.es-bg-1 {
+  background-color: #e387c8;
+}
+
+/* === */
+
+.stepper-container a,
+.stepper-container span {
+  line-height: 30px !important;
+  font-weight: 600 !important;
+}
+
+/* === */
+
+.btn-bt-box-1 {
+  background-color: #eee;
+  position: relative;
+}
+
+.btn-bt-box-1:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 0.05rem #666;
+  transition: all 0.3s ease;
+}
+
+.btn-bt-box-1:hover .bt-box-1__item {
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.btn-bt-box-1:focus .bt-box-1__item {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.bt-box-1__item {
+  opacity: 0;
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.bt-box-1__item .fa-xs {
+  font-size: 0.6em;
+}
+
+.moveOrderBox {
+  position: fixed;
+  top: unset;
+  left: unset;
+  right: unset;
+  width: 210px;
+  z-index: 1030;
+  transition: all 0.3s ease;
+}
+
+/* == */
+
+.checkout-bar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  height: 100%;
+  width: 350px;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem #ddd;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.checkout-bar-hide {
+  z-index: -9999;
+  right: -400px;
+  opacity: 0;
+  transition: all 0.5s ease !important;
+}
+
+@media only screen and (max-width: 992px) {
+  .moveOrderBox {
+    position: unset !important;
+    width: 100%;
+  }
 }

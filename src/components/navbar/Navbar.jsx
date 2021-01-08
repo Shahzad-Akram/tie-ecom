@@ -1,9 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
+  const [navbar, setNavbar] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener('scroll', changeBackground);
+
   return (
-    <nav className='navbar navbar-expand-lg navbar-light bg-light fixed-top'>
+    <nav
+      className={
+        navbar
+          ? `navbar navbar-expand-lg navbar-light fixed-top bg-light shadow`
+          : 'navbar navbar-expand-lg navbar-light bg-transparent fixed-top'
+      }
+    >
       <div className='container-fluid'>
         <Link className='navbar-brand' to='/'>
           Logo
@@ -14,14 +32,20 @@ export const Navbar = () => {
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             <li className='nav-item'>
-              <Link className='nav-link active' aria-current='page' to='/'>
-                Home
-              </Link>
+              <NavLink className='nav-link' to='/shop'>
+                Shop
+              </NavLink>
+            </li>
+
+            <li className='nav-item'>
+              <NavLink className='nav-link' to='/checkout'>
+                Checkout
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/shop'>
-                Shop
-              </Link>
+              <NavLink className='nav-link' to='/yourOrder'>
+                Order
+              </NavLink>
             </li>
           </ul>
           <form className='d-flex'>

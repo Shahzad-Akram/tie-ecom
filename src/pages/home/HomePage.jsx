@@ -10,16 +10,16 @@ import {
   faStar,
 } from '@fortawesome/free-solid-svg-icons';
 
+import imageOne from '../../assets/images/bg-image-1.png';
+import imageTwo from '../../assets/images/bg-image-2.png';
+import cardBoxImageOne from '../../assets/images/card-box-image-1.png';
+
 export const HomePage = () => {
   return (
     <>
       <section className='row vh-100 bg-light align-items-end mb-5'>
         <div className='col-3 text-start ps-0 d-none  d-lg-block'>
-          <img
-            height={400}
-            src='https://cdn.pixabay.com/photo/2017/07/12/06/25/3d-2496016_960_720.png'
-            alt='pic'
-          />
+          <img height={400} src={imageOne} alt='pic' />
         </div>
         <div className='col text-center align-self-center'>
           <h1 className='fw-bold fs-2 fs-md-1'>Shop your designer dresses</h1>
@@ -29,14 +29,10 @@ export const HomePage = () => {
           </div>
         </div>
         <div className='col-3 text-end pe-0 d-none  d-lg-block'>
-          <img
-            height={400}
-            src='https://cdn.pixabay.com/photo/2018/11/09/14/25/female-3804683_960_720.png'
-            alt='pic'
-          />
+          <img height={400} src={imageTwo} alt='pic' />
         </div>
       </section>
-      <section className='mb-5 px-lg-4'>
+      <section className='mb-5 container'>
         <Carousel
           additionalTransfrom={0}
           arrows
@@ -57,14 +53,14 @@ export const HomePage = () => {
             desktop: {
               breakpoint: {
                 max: 3000,
-                min: 1024,
+                min: 1395,
               },
               items: 3,
               partialVisibilityGutter: 40,
             },
             mobile: {
               breakpoint: {
-                max: 464,
+                max: 1000,
                 min: 0,
               },
               items: 1,
@@ -72,8 +68,8 @@ export const HomePage = () => {
             },
             tablet: {
               breakpoint: {
-                max: 1024,
-                min: 464,
+                max: 1395,
+                min: 1000,
               },
               items: 2,
               partialVisibilityGutter: 30,
@@ -84,9 +80,9 @@ export const HomePage = () => {
           slidesToSlide={1}
           swipeable
         >
-          <div className='row bg-info py-3 px-2 rounded-3 text-white mx-3'>
-            <div className='col-12 col-md-6'>
-              <div className='text-center text-md-start ps-md-4'>
+          <div className='row es-bg-1 py-3 px-4 rounded-3 text-white mx-3'>
+            <div className='col-12 col-md-7'>
+              <div className='text-center text-md-start'>
                 <span className='fs-4 fw-bold text-capitalize'>
                   Gift Voucher 1
                 </span>
@@ -95,21 +91,17 @@ export const HomePage = () => {
                   to='/shop'
                   className='btn btn-sm btn-light rounded-pill px-3 mt-4 text-capitalize'
                 >
-                  <small>Shop coupons</small>
+                  <small style={{ color: '#E384C8 ' }}>Shop coupons</small>
                 </Link>
               </div>
             </div>
-            <div className='col col-md-6 order-first order-md-last text-center text-md-end'>
-              <img
-                height={150}
-                src='https://cdn.pixabay.com/photo/2018/03/01/19/46/winter-3191538_1280.png'
-                alt='pic'
-              />
+            <div className='col col-md-5 order-first order-md-last text-center text-md-end'>
+              <img height={100} src={cardBoxImageOne} alt='pic' />
             </div>
           </div>
-          <div className='row bg-info py-3 px-2 rounded-3 text-white mx-3'>
-            <div className='col-12 col-md-6'>
-              <div className='text-center text-md-start ps-md-4'>
+          <div className='row es-bg-1 py-3 px-4 rounded-3 text-white mx-3'>
+            <div className='col-12 col-md-7'>
+              <div className='text-center text-md-start'>
                 <span className='fs-4 fw-bold text-capitalize'>
                   Gift Voucher 2
                 </span>
@@ -118,21 +110,17 @@ export const HomePage = () => {
                   to='/shop'
                   className='btn btn-sm btn-light rounded-pill px-3 mt-4 text-capitalize'
                 >
-                  <small>Shop coupons</small>
+                  <small style={{ color: '#E384C8 ' }}>Shop coupons</small>
                 </Link>
               </div>
             </div>
-            <div className='col col-md-6 order-first order-md-last text-center text-md-end'>
-              <img
-                height={150}
-                src='https://cdn.pixabay.com/photo/2018/03/01/19/46/winter-3191538_1280.png'
-                alt='pic'
-              />
+            <div className='col col-md-5 order-first order-md-last text-center text-md-end'>
+              <img height={100} src={cardBoxImageOne} alt='pic' />
             </div>
           </div>
-          <div className='row bg-info py-3 px-2 rounded-3 text-white mx-3'>
-            <div className='col-12 col-md-6'>
-              <div className='text-center text-md-start ps-md-4'>
+          <div className='row es-bg-1 py-3 px-4 rounded-3 text-white mx-3'>
+            <div className='col-12 col-md-7'>
+              <div className='text-center text-md-start'>
                 <span className='fs-4 fw-bold text-capitalize'>
                   Gift Voucher 3
                 </span>
@@ -141,21 +129,17 @@ export const HomePage = () => {
                   to='/shop'
                   className='btn btn-sm btn-light rounded-pill px-3 mt-4 text-capitalize'
                 >
-                  <small>Shop coupons</small>
+                  <small style={{ color: '#E384C8 ' }}>Shop coupons</small>
                 </Link>
               </div>
             </div>
-            <div className='col col-md-6 order-first order-md-last text-center text-md-end'>
-              <img
-                height={150}
-                src='https://cdn.pixabay.com/photo/2018/03/01/19/46/winter-3191538_1280.png'
-                alt='pic'
-              />
+            <div className='col col-md-5 order-first order-md-last text-center text-md-end'>
+              <img height={100} src={cardBoxImageOne} alt='pic' />
             </div>
           </div>
         </Carousel>
       </section>
-      <section className='mb-5 px-lg-4 pt-5'>
+      <section className='mb-5 container pt-5'>
         <div className='row justify-content-around'>
           <div className='col-12 col-sm-6 col-lg-5 col-xl-4'>
             <div className='mb-5 pb-5'>
@@ -263,7 +247,7 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
-      <section className='mb-5 px-lg-4 py-5'>
+      <section className='mb-5 container py-5'>
         <h2 className='mb-5 text-center'> Best selling</h2>
         <Carousel
           additionalTransfrom={0}
