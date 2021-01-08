@@ -91,7 +91,7 @@ export const HomePage = () => {
                   to='/shop'
                   className='btn btn-sm btn-light rounded-pill px-3 mt-4 text-capitalize'
                 >
-                  <small style={{ color: '#E384C8 ' }}>Shop coupons</small>
+                  <small style={{ color: '#009e7f ' }}>Shop coupons</small>
                 </Link>
               </div>
             </div>
@@ -110,7 +110,7 @@ export const HomePage = () => {
                   to='/shop'
                   className='btn btn-sm btn-light rounded-pill px-3 mt-4 text-capitalize'
                 >
-                  <small style={{ color: '#E384C8 ' }}>Shop coupons</small>
+                  <small style={{ color: '#009e7f ' }}>Shop coupons</small>
                 </Link>
               </div>
             </div>
@@ -129,7 +129,7 @@ export const HomePage = () => {
                   to='/shop'
                   className='btn btn-sm btn-light rounded-pill px-3 mt-4 text-capitalize'
                 >
-                  <small style={{ color: '#E384C8 ' }}>Shop coupons</small>
+                  <small style={{ color: '#009e7f ' }}>Shop coupons</small>
                 </Link>
               </div>
             </div>

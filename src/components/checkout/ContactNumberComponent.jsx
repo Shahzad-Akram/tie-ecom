@@ -62,6 +62,7 @@ export const ContactNumberComponent = () => {
                 type='button'
                 className='p-0 rounded-circle text-white d-flex align-items-center justify-content-center me-1 btn btn-success'
                 style={{ height: 18, width: 18 }}
+                onClick={() => setModal(true)}
               >
                 <FontAwesomeIcon size='xs' icon={faPencilAlt} />
               </button>
@@ -88,6 +89,7 @@ export const ContactNumberComponent = () => {
                 type='button'
                 className='p-0 rounded-circle text-white d-flex align-items-center justify-content-center me-1 btn btn-success'
                 style={{ height: 18, width: 18 }}
+                onClick={() => setModal(true)}
               >
                 <FontAwesomeIcon size='xs' icon={faPencilAlt} />
               </button>

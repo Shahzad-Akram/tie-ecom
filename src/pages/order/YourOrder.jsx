@@ -29,7 +29,7 @@ export const YourOrder = () => {
         </div>
         <div className='col-12 col-xl-4 col-xxl-3 my-4 my-xl-0'>
           <div
-            className='shadow-sm border p-4 rounded-3 overflow-auto'
+            className='shadow-sm border p-4 rounded-3 scroll-box'
             style={{ height: 600 }}
           >
             <h5 className='fw-bold mb-3'>My Order</h5>
@@ -100,8 +100,10 @@ export const YourOrder = () => {
 
                   <div className='mt-4 px-3 stepper-container'>
                     <Stepper
-                      completeColor='#000'
-                      completeTitleColor='#000'
+                      completeColor='#009e7f'
+                      completeTitleColor='#009e7f'
+                      completeBorderColor='#009e7f'
+                      completeBarColor='#009e7f'
                       activeColor='#999'
                       activeTitleColor='#999'
                       titleFontSize={14}
@@ -115,7 +117,7 @@ export const YourOrder = () => {
                   </div>
 
                   <div className='p-3'>
-                    <div className='overflow-auto' style={{ height: 250 }}>
+                    <div className='scroll-box' style={{ height: 250 }}>
                       <table className='table small border'>
                         <thead>
                           <tr className='bg-light'>
@@ -208,8 +210,10 @@ export const YourOrder = () => {
 
                   <div className='mt-4 px-3 stepper-container'>
                     <Stepper
-                      completeColor='#000'
-                      completeTitleColor='#000'
+                      completeColor='#009e7f'
+                      completeTitleColor='#009e7f'
+                      completeBorderColor='#009e7f'
+                      completeBarColor='#009e7f'
                       activeColor='#999'
                       activeTitleColor='#999'
                       titleFontSize={14}
@@ -223,7 +227,7 @@ export const YourOrder = () => {
                   </div>
 
                   <div className='p-3'>
-                    <div className='overflow-auto' style={{ height: 250 }}>
+                    <div className='scroll-box' style={{ height: 250 }}>
                       <table className='table small border'>
                         <thead>
                           <tr className='bg-light'>
@@ -333,8 +337,10 @@ export const YourOrder = () => {
 
                   <div className='mt-4 px-3 stepper-container'>
                     <Stepper
-                      completeColor='#000'
-                      completeTitleColor='#000'
+                      completeColor='#009e7f'
+                      completeTitleColor='#009e7f'
+                      completeBorderColor='#009e7f'
+                      completeBarColor='#009e7f'
                       activeColor='#999'
                       activeTitleColor='#999'
                       titleFontSize={14}
@@ -348,7 +354,7 @@ export const YourOrder = () => {
                   </div>
 
                   <div className='p-3'>
-                    <div className='overflow-auto' style={{ height: 250 }}>
+                    <div className='scroll-box' style={{ height: 250 }}>
                       <table className='table small border'>
                         <thead>
                           <tr className='bg-light'>
