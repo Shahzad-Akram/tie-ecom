@@ -184,6 +184,53 @@ a:focus {
   transition: all 0.5s ease !important;
 }
 
+/* -- */
+
+.check-color-1 .form-check-input,
+.check-color-1 .form-check-input:checked {
+  background-color: #000;
+  border-color: #000;
+}
+
+.check-color-2 .form-check-input,
+.check-color-2 .form-check-input:checked {
+  background-color: rgb(218, 220, 108);
+  border-color: rgb(218, 220, 108);
+}
+
+.check-color-3 .form-check-input,
+.check-color-3 .form-check-input:checked {
+  background-color: #777;
+  border-color: #777;
+}
+
+.check-color-4 .form-check-input,
+.check-color-4 .form-check-input:checked {
+  background-color: rgb(100, 80, 165);
+  border-color: rgb(100, 80, 165);
+}
+
+.check-color-5 .form-check-input,
+.check-color-5 .form-check-input:checked {
+  background-color: #e2667b;
+  border-color: #e2667b;
+}
+
+/* -- */
+
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+
+  background: #31af97;
+  cursor: pointer;
+}
+
+.form-range::-moz-range-thumb {
+  background: #31af97;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 992px) {
   .moveOrderBox {
     position: unset !important;

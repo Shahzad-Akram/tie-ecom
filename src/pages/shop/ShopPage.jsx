@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 // Images
 import EmptyBox from '../../assets/images-svg/empty.svg';
+import { ShopSidebar } from '../../components/checkout/ShopSidebar';
 
 const cardArr = [
   {
@@ -273,7 +274,9 @@ export const ShopPage = () => {
         </h4>
       </div>
       <div className='row'>
-        <div className='col-lg-2 bg-white border-right'>Sidebar</div>
+        <div className='col-lg-3 col-xxl-2 bg-white shadow border-right'>
+          <ShopSidebar />
+        </div>
         <div className='col bg-light p-4'>
           <div className='row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 justify-content-center'>
             {cardArr.map((cardArr) => (
