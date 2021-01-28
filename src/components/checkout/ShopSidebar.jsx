@@ -110,7 +110,7 @@ export const ShopSidebar = () => {
           {sizes.map((value) => (
             <button
               type='button'
-              className='btn btn-outline-success btn-sm me-2 mb-2 d-flex align-items-center justify-content-center'
+              className='btn btn-outline-dark btn-sm me-2 mb-2 d-flex align-items-center justify-content-center'
               style={{ height: 25, width: 25 }}
             >
               <span className='small text-capitalize'>{value.name}</span>
@@ -132,7 +132,7 @@ export const ShopSidebar = () => {
         </div>
       </div>
       <div>
-        <button type='button' className='btn w-100 btn-outline-success'>
+        <button type='button' className='btn w-100 btn-outline-dark'>
           <span>
             <FontAwesomeIcon icon={faRedo} className='small' />
           </span>

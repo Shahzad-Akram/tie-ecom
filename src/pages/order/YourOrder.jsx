@@ -100,10 +100,10 @@ export const YourOrder = () => {
 
                   <div className='mt-4 px-3 stepper-container'>
                     <Stepper
-                      completeColor='#009e7f'
-                      completeTitleColor='#009e7f'
-                      completeBorderColor='#009e7f'
-                      completeBarColor='#009e7f'
+                      completeColor='#284a63'
+                      completeTitleColor='#284a63'
+                      completeBorderColor='#284a63'
+                      completeBarColor='#284a63'
                       activeColor='#999'
                       activeTitleColor='#999'
                       titleFontSize={14}
@@ -210,10 +210,10 @@ export const YourOrder = () => {
 
                   <div className='mt-4 px-3 stepper-container'>
                     <Stepper
-                      completeColor='#009e7f'
-                      completeTitleColor='#009e7f'
-                      completeBorderColor='#009e7f'
-                      completeBarColor='#009e7f'
+                      completeColor='#284a63'
+                      completeTitleColor='#284a63'
+                      completeBorderColor='#284a63'
+                      completeBarColor='#284a63'
                       activeColor='#999'
                       activeTitleColor='#999'
                       titleFontSize={14}
@@ -337,10 +337,10 @@ export const YourOrder = () => {
 
                   <div className='mt-4 px-3 stepper-container'>
                     <Stepper
-                      completeColor='#009e7f'
-                      completeTitleColor='#009e7f'
-                      completeBorderColor='#009e7f'
-                      completeBarColor='#009e7f'
+                      completeColor='#284a63'
+                      completeTitleColor='#284a63'
+                      completeBorderColor='#284a63'
+                      completeBarColor='#284a63'
                       activeColor='#999'
                       activeTitleColor='#999'
                       titleFontSize={14}

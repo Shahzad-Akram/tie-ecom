@@ -122,13 +122,19 @@ export const Navbar = () => {
       <nav
         className={
           navbar
-            ? `navbar navbar-expand-lg navbar-light fixed-top bg-light shadow`
-            : 'navbar navbar-expand-lg navbar-light bg-transparent fixed-top'
+            ? `navbar navbar-expand-lg navbar-light fixed-top bg-primary shadow`
+            : 'navbar navbar-expand-lg navbar-light bg-primary fixed-top'
         }
       >
         <div className='container-fluid'>
           <Link className='navbar-brand' to='/'>
-            Logo
+            <img
+              height='30'
+              width='60'
+              src={require('../../assets/logos/logo-1.PNG').default}
+              style={{ objectFit: 'cover' }}
+              alt='Logo'
+            />
           </Link>
           <button className='navbar-toggler' type='button'>
             <span className='navbar-toggler-icon'></span>

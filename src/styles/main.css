@@ -17,7 +17,7 @@ body {
 
 .react-multiple-carousel__arrow {
   box-shadow: 0 0 4px #0000007d;
-  background-color: #009e7f !important;
+  background-color: #284a63 !important;
   min-width: 30px !important;
   min-height: 30px !important;
 }
@@ -42,65 +42,70 @@ body {
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-  color: #009e7f;
+  color: #284a63 !important;
 }
 
 a {
-  color: #888;
+  color: #b4b7ac !important;
 }
 
 a:hover {
-  color: #009e7f;
+  color: #284a63 !important;
 }
 
 a.active,
 a:active,
 a:focus {
-  color: #009e7f;
+  color: #284a63 !important;
 }
 
 .btn-check:focus + .btn,
 .btn:focus,
 .btn:active {
   outline: 0;
-  box-shadow: 0 0 0 0.1rem #009e7e89;
+  box-shadow: 0 0 0 0.1rem #284a639a;
 }
 
 .btn:hover {
   opacity: 0.8;
 }
 
+.bg-primary {
+  background-color: #032b43 !important;
+}
+
 .btn-dark {
-  background-color: #009e7f !important;
-  border-color: #009e7f !important;
+  background-color: #284a63 !important;
+  border-color: #284a63 !important;
 }
 
 .bg-dark {
-  background-color: #009e7f !important;
+  background-color: #284a63 !important;
 }
 
 .btn-outline-dark {
-  color: #009e7f !important;
-  border-color: #009e7f !important;
+  color: #284a63 !important;
+  border-color: #284a63 !important;
 }
 
 .btn-outline-dark:hover {
   color: #fff !important;
-  background-color: #009e7f !important;
+  background-color: #284a63 !important;
 }
 
+.text-success,
 .text-dark {
-  color: #009e7f !important;
+  color: #284a63 !important;
 }
 
 .form-control:focus {
-  border-color: #009e7f;
+  border-color: #284a63;
   outline: 0;
-  box-shadow: 0 0 0 0.05rem #009e7e8e;
+  box-shadow: 0 0 0 0.05rem #284a639a;
 }
 
 .es-bg-1 {
-  background-color: #009e7f;
+  background-color: #284a63;
 }
 
 .bg-light {
@@ -222,12 +227,12 @@ a:focus {
   -webkit-appearance: none;
   appearance: none;
 
-  background: #31af97;
+  background: #284a63;
   cursor: pointer;
 }
 
 .form-range::-moz-range-thumb {
-  background: #31af97;
+  background: #284a63;
   cursor: pointer;
 }
 
