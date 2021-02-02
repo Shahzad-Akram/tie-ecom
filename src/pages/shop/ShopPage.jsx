@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 // Images
 import EmptyBox from '../../assets/images-svg/empty.svg';
 import { ShopSidebar } from '../../components/checkout/ShopSidebar';
+import { CustomModal } from '../../components/custom/CustomModal';
 
 const cardArr = [
   {
@@ -156,6 +157,7 @@ const checkoutItem = [
 ];
 
 export const ShopPage = () => {
+  const [modal, setModal] = useState(false);
   const [checkoutBar, setCheckoutBar] = useState(false);
   const [counterButton, setCounterButton] = useState(true);
   const [showCounter, setShowCounter] = useState(false);
@@ -280,7 +282,10 @@ export const ShopPage = () => {
         <div className='col bg-light p-4'>
           <div className='row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 justify-content-center'>
             {cardArr.map((cardArr) => (
-              <Link className='col text-decoration-none small bg-white pb-3 rounded-3 m-3 d-flex flex-column'>
+              <Link
+                className='col text-decoration-none small bg-white pb-3 rounded-3 m-3 d-flex flex-column'
+                onClick={() => setModal(true)}
+              >
                 <div className='position-relative'>
                   <img
                     height={240}
@@ -347,6 +352,91 @@ export const ShopPage = () => {
           </div>
         </div>
       </div>
+      {modal ? (
+        <CustomModal>
+          {checkoutItem.map((value) => (
+            <>
+              <header className='d-flex justify-content-between align-items-baseline mb-3'>
+                <div>
+                  <h6 className='mb-0 fw-bold text-dark'>{value.name}</h6>
+                  <div>{value.stock}</div>
+                </div>
+                <button
+                  type='button'
+                  className='btn p-0'
+                  onClick={() => setModal(false)}
+                >
+                  <h3 className='mb-0'>&times;</h3>
+                </button>
+              </header>
+              <div className='border-top my-2'></div>
+              <div>
+                <div className='position-relative'>
+                  <img
+                    style={{ objectFit: 'contain' }}
+                    height={240}
+                    width='100%'
+                    src={value.image}
+                    alt={value.name}
+                  />
+                  <span className='badge bg-warning rounded-pill position-absolute end-0 mt-3'>
+                    {value.discount}
+                  </span>
+                </div>
+                <div className='border-top my-2'></div>
+
+                <div className='d-flex align-items-baseline justify-content-between mt-auto'>
+                  <div className='d-flex align-items-center'>
+                    <span className='fw-bold me-2'>{value.price}</span>
+                    <i className='text-decoration-line-through text-danger small'>
+                      {value.minusPrice}
+                    </i>
+                  </div>
+                  {/* -- */}
+                  <div>
+                    {counterButton ? (
+                      <button
+                        className='btn btn-sm btn-outline-dark rounded-pill m-2'
+                        onClick={() => {
+                          setCounterButton(false);
+                          setShowCounter(true);
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faCartPlus} />
+                        <span className='ms-2 small fw-bold'>Cart</span>
+                      </button>
+                    ) : (
+                      true
+                    )}
+                    {showCounter ? (
+                      <div className='bg-dark rounded-pill d-flex justify-content-around align-items-center'>
+                        <button
+                          className='btn py-1 text-white'
+                          style={{ boxShadow: 'unset' }}
+                          onClick={() => {
+                            setCount((prevCount) => prevCount - 1);
+                          }}
+                        >
+                          -
+                        </button>
+                        <span className='mx-1 small text-white'>{count}</span>
+                        <button
+                          className='btn py-1 text-white'
+                          onClick={() => setCount((prevCount) => prevCount + 1)}
+                          style={{ boxShadow: 'unset' }}
+                        >
+                          +
+                        </button>
+                      </div>
+                    ) : null}
+                  </div>
+                  {/* -- */}
+                </div>
+              </div>
+            </>
+          ))}
+        </CustomModal>
+      ) : null}
     </section>
   );
 };
