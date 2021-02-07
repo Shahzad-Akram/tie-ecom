@@ -12,6 +12,10 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { CartProvider } from "react-use-cart";
 import ProtectedRoutes from "./HOC/ProtectedRouter";
 import { ToastContainer } from "react-toastify";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe("pk_test_kXHzy7mkRHnSIevN5jOZyriw00QEAFjbnf");
 
 const queryClient = new QueryClient();
 
@@ -27,7 +31,9 @@ const App = () => {
               <Route exact path="/" component={HomePage} />
               <Route exact path="/shop" component={ShopPage} />
               <ProtectedRoutes>
-                <Route exact path="/checkout" component={Checkout} />
+                <Elements stripe={stripePromise}>
+                  <Route exact path="/checkout" component={Checkout} />
+                </Elements>
                 <Route exact path="/yourOrder" component={YourOrder} />
               </ProtectedRoutes>
             </Switch>
