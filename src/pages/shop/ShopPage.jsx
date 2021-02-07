@@ -182,7 +182,9 @@ export const ShopPage = () => {
 
       <div
         className={
-          checkoutBar ? `checkout-bar` : `checkout-bar checkout-bar-hide`
+          checkoutBar
+            ? `checkout-bar scroll-box`
+            : `checkout-bar checkout-bar-hide`
         }
       >
         <header className='d-flex align-items-baseline justify-content-between pt-2 pb-3 mb-3 border-bottom px-3'>
