@@ -7,6 +7,10 @@ body {
 
 /* === */
 
+.navbar-light .navbar-toggler-icon {
+  background-image: url(../assets/menu.png);
+}
+
 .box-card-3 {
   transform: scale(0.97);
   transition: all 0.3s ease;
