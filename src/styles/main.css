@@ -7,6 +7,16 @@ body {
 
 /* === */
 
+.box-card-3 {
+  transform: scale(0.97);
+  transition: all 0.3s ease;
+}
+
+.box-card-3:hover {
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
 .react-multiple-carousel__arrow--left {
   left: 3px !important;
 }
