@@ -11,15 +11,24 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import imageOne from '../../assets/images/bg-image-1.png';
-import imageTwo from '../../assets/images/bg-image-2.png';
+import imageTwo from '../../assets/images/bow-banner.png';
 import cardBoxImageOne from '../../assets/images/card-box-image-1.png';
+import tie1 from '../../assets/images/tie-1.jpg';
+import tie2 from '../../assets/images/tie-2.jpg';
+import bow1 from '../../assets/images/bow-1.jpg';
 
 export const HomePage = () => {
   return (
     <>
       <section className='row vh-100 bg-light align-items-end mb-5'>
-        <div className='col-3 text-start ps-0 d-none  d-lg-block'>
-          <img height={400} src={imageOne} alt='pic' />
+        <div className='col-3 text-start ps-0 '>
+          <img
+            height={400}
+            width='100%'
+            style={{ objectFit: 'contain', objectPosition: '50% 90%' }}
+            src={imageOne}
+            alt='pic'
+          />
         </div>
         <div className='col text-center align-self-center'>
           <h1 className='fw-bold fs-2 fs-md-1'>Shop your designer dresses</h1>
@@ -28,8 +37,14 @@ export const HomePage = () => {
             stock lasts.
           </div>
         </div>
-        <div className='col-3 text-end pe-0 d-none  d-lg-block'>
-          <img height={400} src={imageTwo} alt='pic' />
+        <div className='col-3 text-end pe-0 '>
+          <img
+            height={400}
+            width='100%'
+            style={{ objectFit: 'contain', objectPosition: '50% 90%' }}
+            src={imageTwo}
+            alt='pic'
+          />
         </div>
       </section>
       <section className='mb-5 container'>
@@ -139,15 +154,16 @@ export const HomePage = () => {
           </div>
         </Carousel>
       </section>
-      <section className='mb-5 container pt-5'>
+      <section className='mb-5 container pt-5 bg-light'>
         <div className='row justify-content-around'>
           <div className='col-12 col-sm-6 col-lg-5 col-xl-4'>
             <div className='mb-5 pb-5'>
               <Link>
                 <img
+                  className='rounded-4 shadow'
                   height={300}
                   width='100%'
-                  src='https://elementor-10aba.kxcdn.com/kera/wp-content/uploads/2020/05/banner-home1-01.jpg'
+                  src={bow1}
                   alt='pic'
                 />
               </Link>
@@ -163,9 +179,10 @@ export const HomePage = () => {
             <div className='mb-5 pb-5'>
               <Link>
                 <img
+                  className='rounded-4 shadow'
                   height={450}
                   width='100%'
-                  src='https://elementor-10aba.kxcdn.com/kera/wp-content/uploads/2020/05/banner-home1-03.jpg'
+                  src={tie1}
                   alt='pic'
                 />
               </Link>
@@ -187,6 +204,7 @@ export const HomePage = () => {
             <div className='mb-5 pb-5'>
               <Link>
                 <img
+                  className='rounded-4 shadow'
                   height={300}
                   width='100%'
                   src='https://elementor-10aba.kxcdn.com/kera/wp-content/uploads/2020/05/banner-home1-05.jpg'
@@ -206,9 +224,10 @@ export const HomePage = () => {
             <div className='mb-5 pb-5'>
               <Link>
                 <img
+                  className='rounded-4 shadow'
                   height={650}
                   width='100%'
-                  src='https://elementor-10aba.kxcdn.com/kera/wp-content/uploads/2020/05/banner-home1-02.jpg'
+                  src={tie2}
                   alt='pic'
                 />
               </Link>
@@ -224,6 +243,7 @@ export const HomePage = () => {
             <div className='mb-5 pb-5'>
               <Link>
                 <img
+                  className='rounded-4 shadow'
                   height={350}
                   width='100%'
                   src='https://elementor-10aba.kxcdn.com/kera/wp-content/uploads/2020/05/banner-home1-04.jpg'

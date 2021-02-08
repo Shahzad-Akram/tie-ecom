@@ -1,62 +1,94 @@
-import { faRedo } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import { faRedo } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
 
-const product = [
-  { name: 'Accessories' },
-  { name: 'Bags' },
-  { name: 'Accessories' },
-  { name: 'Bags' },
-  { name: 'Accessories' },
-  { name: 'Bags' },
+const category = [
+  { id: 1, name: "Ties", value: "Tie" },
+  { id: 2, name: "Bows", value: "bow" },
 ];
 
-const brands = [
-  { name: 'Alexandermer' },
-  { name: 'Bossess' },
-  { name: 'Burbered' },
-  { name: 'Hermeck' },
-  { name: 'Hoga' },
+const Materials = [
+  { name: "Cotton", value: "cotton" },
+  { name: "Cotton Mix", value: "cotton-mix" },
+  { name: "Polyester", value: "polyester" },
+  { name: "Polyester Mix", value: "mix" },
+  { name: "Silk", value: "silk" },
+  { name: "Wool", value: "wool  " },
+];
+
+const Pattern = [
+  { name: "Geometric", value: "geometric" },
+  { name: "Plain", value: "plain" },
+  { name: "Stripe", value: "stripe" },
+  { name: "Floral", value: "floral" },
+  { name: "Spot", value: "spot" },
+  { name: "Check", value: "check" },
+  { name: "Patterned", value: "patterned" },
+  { name: "Knitted", value: "knitted" },
+  { name: "Paisley", value: "paisley" },
 ];
 
 const colors = [
-  { key: 1, color: 'check-color-1' },
-  { key: 2, color: 'check-color-2' },
-  { key: 3, color: 'check-color-3' },
-  { key: 4, color: 'check-color-4' },
-  { key: 5, color: 'check-color-5' },
+  { key: 1, color: "check-color-1", value: "#008000" },
+  { key: 2, color: "check-color-2", value: "#440000" },
+  { key: 3, color: "check-color-3", value: "#ffd700" },
+  { key: 4, color: "check-color-4", value: "#808080" },
+  { key: 5, color: "check-color-5", value: "#000080" },
+  { key: 5, color: "check-color-6", value: "#ffa500" },
+  { key: 5, color: "check-color-7", value: "#ffc0cb" },
+  { key: 5, color: "check-color-8", value: "#800080" },
+  { key: 5, color: "check-color-9", value: "#ff0000" },
+  { key: 5, color: "check-color-10", value: "#c0c0c0" },
+  { key: 5, color: "check-color-11", value: "#ffffff" },
+  { key: 5, color: "check-color-12", value: "#ffff00" },
+  { key: 5, color: "check-color-13", value: "#fffdd0" },
+  { key: 5, color: "check-color-14", value: "#00bfff" },
 ];
 
 const sizes = [
-  { name: '37' },
-  { name: '38' },
-  { name: '40' },
-  { name: 'L' },
-  { name: 'm' },
-  { name: 's' },
-  { name: 'xl' },
+  { name: "Regular", value: "regular" },
+  { name: "Skinny", value: "skinny" },
+  { name: "Slim", value: "slim" },
 ];
 
-export const ShopSidebar = () => {
+export const ShopSidebar = ({
+  setType,
+  setPrice,
+  setMaterial,
+  setPattern,
+  setSize,
+  setColor,
+}) => {
   const [showOne, setShowOne] = useState(false);
+  const [price, setPriceLimit] = useState();
+
+  const resetAll = () => {
+    setType(null);
+    setPrice(null);
+    setMaterial(null);
+    setPattern(null);
+    setSize(null);
+    setColor(null);
+  };
+
   return (
-    <section className='p-3'>
-      <div className='mb-4'>
-        <h6 className='fw-bold mb-3'>Product Categories</h6>
-        <ul className='nav flex-column'>
-          {product.map((value) => (
-            <li className='nav-list'>
+    <section className="p-3">
+      <div className="mb-4">
+        <h6 className="fw-bold mb-3">Product Categories</h6>
+        <ul className="nav flex-column">
+          {category.map((value) => (
+            <li key={value.id} className="nav-list">
               <button
-                type='button'
-                className='btn nav-link d-flex flex-wrap align-items-end'
-                onClick={() => setShowOne(!showOne)}
+                type="button"
+                className="btn nav-link d-flex flex-wrap align-items-end"
+                onClick={() => setType(value.value)}
               >
                 {showOne ? (
-                  <span className='me-2 badge bg-light text-black-50 rounded-3'>
+                  <span className="me-2 badge bg-light text-black-50 rounded-3">
                     &times;
                   </span>
                 ) : null}
-                <span className='text-capitalize small text-black-50'>
+                <span className="text-capitalize small text-black-50">
                   {value.name}
                 </span>
               </button>
@@ -65,22 +97,22 @@ export const ShopSidebar = () => {
         </ul>
       </div>
 
-      <div className='mb-4'>
-        <h6 className='fw-bold mb-3'>Brands</h6>
-        <ul className='nav flex-column'>
-          {brands.map((value) => (
-            <li className='nav-list'>
+      <div className="mb-4">
+        <h6 className="fw-bold mb-3">Materials</h6>
+        <ul className="nav flex-column">
+          {Materials.map((value) => (
+            <li className="nav-list">
               <button
-                type='button'
-                className='btn nav-link d-flex flex-wrap align-items-end'
-                onClick={() => setShowOne(!showOne)}
+                type="button"
+                className="btn nav-link d-flex flex-wrap align-items-end"
+                onClick={() => setMaterial(value.value)}
               >
-                {showOne ? (
-                  <span className='me-2 badge bg-light text-black-50 rounded-3'>
+                {/* {showOne ? (
+                  <span className="me-2 badge bg-light text-black-50 rounded-3">
                     &times;
                   </span>
-                ) : null}
-                <span className='text-capitalize small text-black-50'>
+                ) : null} */}
+                <span className="text-capitalize small text-black-50">
                   {value.name}
                 </span>
               </button>
@@ -89,14 +121,42 @@ export const ShopSidebar = () => {
         </ul>
       </div>
 
-      <div className='mb-4'>
-        <h6 className='fw-bold mb-3'>Product Color</h6>
-        <div className='d-flex flex-wrap'>
-          {colors.map((value) => (
-            <div className={`form-check mr-2 ${value.color}`}>
+      <div className="mb-4">
+        <h6 className="fw-bold mb-3">Pattern</h6>
+        <ul className="nav flex-column">
+          {Pattern.map((value) => (
+            <li className="nav-list">
+              <button
+                type="button"
+                className="btn nav-link d-flex flex-wrap align-items-end"
+                onClick={() => setPattern(value.value)}
+              >
+                {showOne ? (
+                  <span className="me-2 badge bg-light text-black-50 rounded-3">
+                    &times;
+                  </span>
+                ) : null}
+                <span className="text-capitalize small text-black-50">
+                  {value.name}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mb-4">
+        <h6 className="fw-bold mb-3">Product Color</h6>
+        <div className="d-flex flex-wrap">
+          {colors.map((value, key) => (
+            <div
+              key={value.key}
+              className={`form-check mr-2 ${value.color}`}
+              onClick={() => setColor(value.value)}
+            >
               <input
-                className='form-check-input'
-                type='checkbox'
+                className="form-check-input"
+                type="checkbox"
                 id={value.key}
               />
             </div>
@@ -104,39 +164,54 @@ export const ShopSidebar = () => {
         </div>
       </div>
 
-      <div className='mb-4'>
-        <h6 className='fw-bold mb-3'>Product Size</h6>
-        <div className='d-flex flex-wrap'>
+      <div className="mb-4">
+        <h6 className="fw-bold mb-3">Product Size</h6>
+        <div className="d-flex flex-wrap">
           {sizes.map((value) => (
             <button
-              type='button'
-              className='btn btn-outline-dark btn-sm me-2 mb-2 d-flex align-items-center justify-content-center'
-              style={{ height: 25, width: 25 }}
+              type="button"
+              className="btn btn-outline-dark btn-sm me-2 mb-2 d-flex align-items-center justify-content-center"
+              style={{ height: 25, width: 50 }}
+              onClick={() => setSize(value.value)}
             >
-              <span className='small text-capitalize'>{value.name}</span>
+              <span className="small text-capitalize">{value.name}</span>
             </button>
           ))}
         </div>
       </div>
 
-      <div className='mb-4'>
-        <h6 className='fw-bold mb-3'>Brands</h6>
-        <div className='mb-3'>
-          <input type='range' className='form-range' id='customRange1' />
+      <div className="mb-4">
+        <h6 className="fw-bold mb-3">Brands</h6>
+        <div className="mb-3">
+          <input
+            type="range"
+            min="5"
+            max="500"
+            onChange={(e) => {
+              setPrice(e.target.value);
+              setPriceLimit(e.target.value);
+            }}
+            className="form-range"
+            id="customRange1"
+          />
         </div>
-        <div className='d-flex align-items-end fw-bold'>
-          <span className='small text-black-50 me-1'>Price:</span>
-          <span>$50.00</span>
-          <span className='mx-1'>-</span>
-          <span>$350.00</span>
+        <div className="d-flex align-items-end fw-bold">
+          <span className="small text-black-50 me-1">Price:</span>
+          <span>$00.00</span>
+          <span className="mx-1">-</span>
+          <span>${price}</span>
         </div>
       </div>
       <div>
-        <button type='button' className='btn w-100 btn-outline-dark'>
+        <button
+          type="button"
+          className="btn w-100 btn-outline-dark"
+          onClick={resetAll}
+        >
           <span>
-            <FontAwesomeIcon icon={faRedo} className='small' />
+            <FontAwesomeIcon icon={faRedo} className="small" />
           </span>
-          <span className='text-capitalize ms-2 small'>Rest all</span>
+          <span className="text-capitalize ms-2 small">Reset all</span>
         </button>
       </div>
     </section>

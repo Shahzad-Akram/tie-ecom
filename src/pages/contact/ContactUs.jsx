@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CustomModal } from '../../components/custom/CustomModal';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,13 +19,27 @@ import {
 import imageOne from '../../assets/images/contact.svg';
 
 export const ContactUs = () => {
+  const { register, handleSubmit, watch, errors, reset } = useForm();
   const [modal, setModal] = useState(false);
 
   const handleClose = () => setModal(false);
   const handleShow = () => setModal(true);
 
+  const onSubmit = (data) => {
+    axios
+      .post('https://tie-ecommerce.herokuapp.com/feedback', data)
+      .then((res) => {
+        reset();
+        toast.info('Message Sent Succefully. Will contact you back.', 1000);
+      })
+      .catch((err) => toast.error('Something went Wrong!', 1000));
+  };
+
   return (
-    <main className='bg-light' style={{ margin: '0 -12px' }}>
+    <main
+      className='bg-light position-absolute w-100'
+      style={{ left: '49.99999%', transform: 'translateX(-50%)' }}
+    >
       <section className='pb-5'>
         <div
           className='d-flex align-items-center justify-content-center text-white text-center'
@@ -120,12 +138,14 @@ export const ContactUs = () => {
             <div className='col-12 col-lg-6 order-last order-lg-first mt-5 mt-lg-0'>
               <div className='bg-white p-4 shadow-sm rounded-lg'>
                 <h5 className='mb-4'>Send as a message:</h5>
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className='mb-3'>
                     <input
                       className='input-group-text text-start w-100'
                       type='name'
                       placeholder='Your name'
+                      name='name'
+                      ref={register({ required: true })}
                     />
                   </div>
 
@@ -134,14 +154,18 @@ export const ContactUs = () => {
                       className='input-group-text text-start w-100'
                       type='email'
                       placeholder='Email address'
+                      name='email'
+                      ref={register({ required: true })}
                     />
                   </div>
 
                   <div className='mb-3'>
                     <input
                       className='input-group-text text-start w-100'
-                      type='number'
-                      placeholder='Phone number'
+                      type='text'
+                      placeholder='Enter Subject'
+                      name='subject'
+                      ref={register({ required: true })}
                     />
                   </div>
 
@@ -151,6 +175,8 @@ export const ContactUs = () => {
                       rows={6}
                       placeholder='Enter your message'
                       className='input-group-text text-start w-100'
+                      name='message'
+                      ref={register({ required: true })}
                     />
                   </div>
 
@@ -181,7 +207,7 @@ export const ContactUs = () => {
                   />
                 </div>
 
-                <h3>Ready to start making busines with us?</h3>
+                <h3>Ready to start making business with us?</h3>
                 <p>
                   Rapidiously transform integrated processes via frictionless
                   paradigms. Intrinsicly productize proactive catalysts for
