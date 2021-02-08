@@ -18,13 +18,13 @@ const ProtectedRoutes = ({ children }) => {
   //   const isCheckout = history.location.pathname === '/cart-checkout';
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated && !isLoading) {
       isLoggedIn(dispatch);
       showLoginModal(dispatch, true);
     }
-  }, [isAuthenticated, dispatch]);
+  }, [isAuthenticated, dispatch, isLoading]);
 
-  if (isLoading) return "loading";
+  if (isLoading) return "i am loading";
 
   return (
     <>

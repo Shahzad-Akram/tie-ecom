@@ -15,6 +15,8 @@ export const Navbar = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { show } = useSelector((state) => state.signIn);
   const dispatch = useDispatch();
+  const [navbarToggler, setNavbarToggler] = useState(false);
+  const [modal, setModal] = useState(false);
 
   const changeBackground = () => {
     if (window.scrollY >= 80) {
@@ -194,11 +196,29 @@ export const Navbar = () => {
               alt="Logo"
             />
           </Link>
-          <button className="navbar-toggler" type="button">
+          <button
+            className="navbar-toggler"
+            type="button"
+            onClick={() => setNavbarToggler(!navbarToggler)}
+          >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <div
+            className={
+              navbarToggler
+                ? "navbar-collapse py-3 py-lg-0"
+                : "collapse navbar-collapse"
+            }
+          >
+            <div
+              className="d-flex d-lg-none h-100 w-100 position-fixed"
+              style={{
+                backgroundColor: "rgba(0, 0, 0, 0.3)",
+                left: "50%",
+                transform: "translateX(-50%)",
+              }}
+            ></div>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 text-center position-relative">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/shop">
                   Shop
@@ -215,8 +235,13 @@ export const Navbar = () => {
                   Order
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/contact">
+                  ContactUs
+                </NavLink>
+              </li>
             </ul>
-            <form className="d-flex">
+            <form className="d-flex justify-content-center position-relative">
               {/* <input
               className='form-control me-2'
               type='search'

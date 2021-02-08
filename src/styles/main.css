@@ -7,8 +7,18 @@ body {
 
 /* === */
 
-.rounded-4 {
-  border-radius: 0.5rem !important;
+.navbar-light .navbar-toggler-icon {
+  background-image: url(../assets/menu.png);
+}
+
+.box-card-3 {
+  transform: scale(0.97);
+  transition: all 0.3s ease;
+}
+
+.box-card-3:hover {
+  transform: scale(1);
+  transition: all 0.3s ease;
 }
 
 .react-multiple-carousel__arrow--left {
@@ -175,10 +185,10 @@ a:focus {
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 0;
+  top: 8%;
   right: 0;
   z-index: 9999;
-  height: 100%;
+  height: 91%;
   width: 350px;
   background-color: #fff;
   box-shadow: 0 0 0.5rem #ddd;
@@ -197,32 +207,86 @@ a:focus {
 
 .check-color-1 .form-check-input,
 .check-color-1 .form-check-input:checked {
-  background-color: #000;
-  border-color: #000;
+  background-color: #008000;
+  border-color: #008000;
 }
 
 .check-color-2 .form-check-input,
 .check-color-2 .form-check-input:checked {
-  background-color: rgb(218, 220, 108);
-  border-color: rgb(218, 220, 108);
+  background-color: #440000;
+  border-color: #440000;
 }
 
 .check-color-3 .form-check-input,
 .check-color-3 .form-check-input:checked {
-  background-color: #777;
-  border-color: #777;
+  background-color: #ffd700;
+  border-color: #ffd700;
 }
 
 .check-color-4 .form-check-input,
 .check-color-4 .form-check-input:checked {
-  background-color: rgb(100, 80, 165);
-  border-color: rgb(100, 80, 165);
+  background-color: #808080;
+  border-color: #808080;
 }
 
 .check-color-5 .form-check-input,
 .check-color-5 .form-check-input:checked {
-  background-color: #e2667b;
-  border-color: #e2667b;
+  background-color: #000080;
+  border-color: #000080;
+}
+
+.check-color-6 .form-check-input,
+.check-color-6 .form-check-input:checked {
+  background-color: #ffa500;
+  border-color: #ffa500;
+}
+
+.check-color-7 .form-check-input,
+.check-color-7 .form-check-input:checked {
+  background-color: #ffc0cb;
+  border-color: #ffc0cb;
+}
+
+.check-color-8 .form-check-input,
+.check-color-8 .form-check-input:checked {
+  background-color: #800080;
+  border-color: #800080;
+}
+
+.check-color-9 .form-check-input,
+.check-color-9 .form-check-input:checked {
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+.check-color-10 .form-check-input,
+.check-color-10 .form-check-input:checked {
+  background-color: #c0c0c0;
+  border-color: #c0c0c0;
+}
+
+.check-color-11 .form-check-input,
+.check-color-11 .form-check-input:checked {
+  background-color: #ffffff;
+  border-color: #000000;
+}
+
+.check-color-12 .form-check-input,
+.check-color-12 .form-check-input:checked {
+  background-color: #ffff00;
+  border-color: #ffff00;
+}
+
+.check-color-13 .form-check-input,
+.check-color-13 .form-check-input:checked {
+  background-color: #fffdd0;
+  border-color: #fffdd0;
+}
+
+.check-color-14 .form-check-input,
+.check-color-14 .form-check-input:checked {
+  background-color: #00bfff;
+  border-color: #00bfff;
 }
 
 /* -- */

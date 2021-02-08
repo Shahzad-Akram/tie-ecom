@@ -35,7 +35,7 @@ export const YourOrder = () => {
         <>loading .... </>
       ) : (
         <div className="row w-100 mx-0 px-lg-5">
-          <div className="col col-lg-2 mb-4 mb-lg-0">
+          {/* <div className="col col-lg-2 mb-4 mb-lg-0">
             <div className="shadow-sm border p-4 rounded-3">
               <ul className="nav flex-column">
                 <li className="nav-item mb-3">
@@ -45,7 +45,7 @@ export const YourOrder = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
           <div className="col-12 col-xl-4 col-xxl-3 my-4 my-xl-0">
             <div
               className="shadow-sm border p-4 rounded-3 scroll-box"

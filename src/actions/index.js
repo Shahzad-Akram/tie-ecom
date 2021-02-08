@@ -41,18 +41,57 @@ export const getProductstype = (key) => {
   const type = key.queryKey[1];
   const brand = key.queryKey[2];
   const price = key.queryKey[3];
+  const pattern = key.queryKey[4];
+  const size = key.queryKey[5];
+  const color = key.queryKey[6];
   const params = {};
 
-  if (brand === null && price === null) {
+  if (
+    brand === null &&
+    price === null &&
+    pattern === null &&
+    size === null &&
+    color === null
+  ) {
     params.category = type;
   } else if (price === null) {
+    params.color = color;
+    params.size = size;
     params.category = type;
-    params.brand = brand;
+    params.material = brand;
+    params.pattern = pattern;
   } else if (brand === null) {
+    params.color = color;
+    params.size = size;
     params.category = type;
     params.gt = 0;
     params.lt = price;
+    params.pattern = pattern;
+  } else if (pattern === null) {
+    params.color = color;
+    params.size = size;
+    params.category = type;
+    params.brand = brand;
+    params.gt = 0;
+    params.lt = price;
+  } else if (size === null) {
+    params.color = color;
+    params.pattern = pattern;
+    params.category = type;
+    params.brand = brand;
+    params.gt = 0;
+    params.lt = price;
+  } else if (color === null) {
+    params.size = size;
+    params.pattern = pattern;
+    params.category = type;
+    params.brand = brand;
+    params.gt = 0;
+    params.lt = price;
   } else {
+    params.color = color;
+    params.size = size;
+    params.pattern = pattern;
     params.category = type;
     params.brand = brand;
     params.gt = 0;

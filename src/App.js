@@ -14,6 +14,7 @@ import ProtectedRoutes from "./HOC/ProtectedRouter";
 import { ToastContainer } from "react-toastify";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { ContactUs } from "./pages/contact/ContactUs";
 
 const stripePromise = loadStripe("pk_test_kXHzy7mkRHnSIevN5jOZyriw00QEAFjbnf");
 
@@ -35,6 +36,7 @@ const App = () => {
                   <Route exact path="/checkout" component={Checkout} />
                 </Elements>
                 <Route exact path="/yourOrder" component={YourOrder} />
+                <Route exact path="/contact" component={ContactUs} />
               </ProtectedRoutes>
             </Switch>
           </div>
