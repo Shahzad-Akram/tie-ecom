@@ -250,9 +250,19 @@ a:focus {
   cursor: pointer;
 }
 
+.slick-dots {
+  bottom: 0 !important;
+}
+
 @media only screen and (max-width: 992px) {
   .moveOrderBox {
     position: unset !important;
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .modal-card-container {
+    height: 70vh;
   }
 }

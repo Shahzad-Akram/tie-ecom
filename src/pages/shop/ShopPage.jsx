@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 // Images
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import EmptyBox from '../../assets/images-svg/empty.svg';
 import { ShopSidebar } from '../../components/checkout/ShopSidebar';
 import { CustomModal } from '../../components/custom/CustomModal';
+import { ShopModal } from './ShopModal';
 
 const cardArr = [
   {
@@ -162,6 +163,7 @@ export const ShopPage = () => {
   const [counterButton, setCounterButton] = useState(true);
   const [showCounter, setShowCounter] = useState(false);
   const [count, setCount] = useState(0);
+
   return (
     <section>
       {/* Checkout Bar Start */}
@@ -355,88 +357,8 @@ export const ShopPage = () => {
         </div>
       </div>
       {modal ? (
-        <CustomModal>
-          {checkoutItem.map((value) => (
-            <>
-              <header className='d-flex justify-content-between align-items-baseline mb-3'>
-                <div>
-                  <h6 className='mb-0 fw-bold text-dark'>{value.name}</h6>
-                  <div>{value.stock}</div>
-                </div>
-                <button
-                  type='button'
-                  className='btn p-0'
-                  onClick={() => setModal(false)}
-                >
-                  <h3 className='mb-0'>&times;</h3>
-                </button>
-              </header>
-              <div className='border-top my-2'></div>
-              <div>
-                <div className='position-relative'>
-                  <img
-                    style={{ objectFit: 'contain' }}
-                    height={240}
-                    width='100%'
-                    src={value.image}
-                    alt={value.name}
-                  />
-                  <span className='badge bg-warning rounded-pill position-absolute end-0 mt-3'>
-                    {value.discount}
-                  </span>
-                </div>
-                <div className='border-top my-2'></div>
-
-                <div className='d-flex align-items-baseline justify-content-between mt-auto'>
-                  <div className='d-flex align-items-center'>
-                    <span className='fw-bold me-2'>{value.price}</span>
-                    <i className='text-decoration-line-through text-danger small'>
-                      {value.minusPrice}
-                    </i>
-                  </div>
-                  {/* -- */}
-                  <div>
-                    {counterButton ? (
-                      <button
-                        className='btn btn-sm btn-outline-dark rounded-pill m-2'
-                        onClick={() => {
-                          setCounterButton(false);
-                          setShowCounter(true);
-                        }}
-                      >
-                        <FontAwesomeIcon icon={faCartPlus} />
-                        <span className='ms-2 small fw-bold'>Cart</span>
-                      </button>
-                    ) : (
-                      true
-                    )}
-                    {showCounter ? (
-                      <div className='bg-dark rounded-pill d-flex justify-content-around align-items-center'>
-                        <button
-                          className='btn py-1 text-white'
-                          style={{ boxShadow: 'unset' }}
-                          onClick={() => {
-                            setCount((prevCount) => prevCount - 1);
-                          }}
-                        >
-                          -
-                        </button>
-                        <span className='mx-1 small text-white'>{count}</span>
-                        <button
-                          className='btn py-1 text-white'
-                          onClick={() => setCount((prevCount) => prevCount + 1)}
-                          style={{ boxShadow: 'unset' }}
-                        >
-                          +
-                        </button>
-                      </div>
-                    ) : null}
-                  </div>
-                  {/* -- */}
-                </div>
-              </div>
-            </>
-          ))}
+        <CustomModal className='w-100 bg-transparent'>
+          <ShopModal onHide={() => setModal(false)} />
         </CustomModal>
       ) : null}
     </section>
