@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CustomModal } from "../../components/custom/CustomModal";
 
-const ItemModal = () => {
+const ItemModal = ({ setModal }) => {
   return (
     <CustomModal>
       <header className="d-flex justify-content-between align-items-baseline mb-3">
@@ -14,7 +14,9 @@ const ItemModal = () => {
           className="btn p-0"
           //   onClick={() => setModal(false)}
         >
-          <h3 className="mb-0">&times;</h3>
+          <h3 className="mb-0" onClick={() => setModal(false)}>
+            &times;
+          </h3>
         </button>
       </header>
       <div className="border-top my-2"></div>

@@ -63,7 +63,7 @@ const Products = () => {
 
   return (
     <>
-      {modal ? <ItemModal /> : null}
+      {modal ? <ItemModal setModal={setModal} /> : null}
       <div className="row">
         <div className="col-lg-3 col-xxl-2 bg-white shadow border-right">
           <ShopSidebar
@@ -86,7 +86,6 @@ const Products = () => {
                   <Link
                     className="col text-decoration-none small bg-white pb-3 rounded-3 m-3 d-flex flex-column"
                     key={data._id}
-                    onClick={() => setModal(true)}
                   >
                     <div className="position-relative">
                       <img
@@ -94,6 +93,7 @@ const Products = () => {
                         width="100%"
                         src={data.images[0]}
                         alt={data.name}
+                        onClick={() => setModal(true)}
                       />
                       <span className="badge bg-warning rounded-pill position-absolute end-0 mt-3">
                         20%
