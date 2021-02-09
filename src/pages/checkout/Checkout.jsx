@@ -17,6 +17,7 @@ import EmptyBox from "../../assets/images-svg/empty.svg";
 
 export const Checkout = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const [loading, setLoading] = useState(false);
   const [moveOrderBox, setMoveOrderBox] = useState(false);
   const [address, setAddress] = useState(null);
   const [contact, setContact] = useState(null);
@@ -61,13 +62,18 @@ export const Checkout = () => {
         orderBy: user._id,
       };
       console.log(data);
+      setLoading(true);
       axios
         .post("https://tie-ecommerce.herokuapp.com/order", data)
         .then((res) => {
+          setLoading(false);
           toast.success("Order Placed Successfully!", 1000);
           emptyCart();
         })
-        .catch((err) => toast.error("Something Went Wrong!", 1000));
+        .catch((err) => {
+          setLoading(false);
+          toast.error("Something Went Wrong!", 1000);
+        });
     }
   };
 
@@ -140,12 +146,20 @@ export const Checkout = () => {
                   <span>${cartTotal}</span>
                 </div>
                 <div>
-                  <button
-                    onClick={placeOrder}
-                    className=" m-2 btn btn-dark w-100"
-                  >
-                    Make payment
-                  </button>
+                  {loading ? (
+                    <div class="d-flex justify-content-center">
+                      <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={placeOrder}
+                      className=" m-2 btn btn-dark w-100"
+                    >
+                      Make payment
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

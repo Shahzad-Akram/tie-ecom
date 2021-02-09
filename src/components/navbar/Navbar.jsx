@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export const Navbar = () => {
   const { register, handleSubmit, watch, errors } = useForm();
+  const [loading, setLoading] = useState(false);
   const [sign, setSign] = useState(true);
   const [navbar, setNavbar] = useState(false);
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -43,16 +44,19 @@ export const Navbar = () => {
   };
 
   const login = (data) => {
+    setLoading(true);
     console.log(data);
     axios
       .post("https://tie-ecommerce.herokuapp.com/auth/signin", data)
       .then((res) => {
         loginUser(dispatch, res.data);
+        setLoading(false);
         toast.success("Login Successfull!", 1000);
         showModal(false);
       })
       .catch((err) => {
         toast.error("Something Went Wrong!", 1000);
+        setLoading(false);
         showModal(false);
       });
   };
@@ -100,9 +104,16 @@ export const Navbar = () => {
                     placeholder="Password"
                     ref={register({ required: true })}
                   />
-                  <button type="submit" className="btn btn-dark w-100 mb-3">
-                    Continue
-                  </button>
+                  {loading ? (
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  ) : (
+                    <button type="submit" className="btn btn-dark  w-100 mb-3 ">
+                      Continue
+                    </button>
+                  )}
+
                   <div className="small text-black-50 d-flex align-items-center justify-content-center">
                     <span>Don't have any account?</span>
                     <Link
@@ -160,10 +171,15 @@ export const Navbar = () => {
                     placeholder="Password"
                     ref={register({ required: true })}
                   />
-
-                  <button type="submit" className="btn btn-dark w-100 mb-3">
-                    Continue
-                  </button>
+                  {loading ? (
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  ) : (
+                    <button type="submit" className="btn btn-dark w-100 mb-3">
+                      Continue
+                    </button>
+                  )}
                   <div className="small text-black-50 d-flex align-items-center justify-content-center">
                     <span>Already have an account?</span>
                     <Link

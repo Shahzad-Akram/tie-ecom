@@ -28,7 +28,7 @@ export const YourOrder = () => {
     }
   }, [isLoading]);
 
-  console.log(details);
+  console.log(data);
   return (
     <section className="pt-5 d-flex align-items-center my-5">
       {isLoading ? (
@@ -66,7 +66,12 @@ export const YourOrder = () => {
               </header>
 
               {/* Panel Start */}
-              <OrderDetails order={details} />
+              {details === null ? (
+                <>loading ... </>
+              ) : (
+                <OrderDetails order={details} />
+              )}
+
               {/* Panel End */}
             </div>
           </div>

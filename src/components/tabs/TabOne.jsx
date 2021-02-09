@@ -20,7 +20,7 @@ export const TabOne = ({ onClick, data }) => {
           className="btn w-100 bg-light p-3 small rounded-3 mb-4"
         >
           <div className="d-flex justify-content-between mb-3">
-            <span className="fw-bold">Order#{data._id}</span>
+            <span className="fw-bold">Order No: {data.orderId}</span>
             <span className="text-capitalize badge bg-dark">
               {cardTabArr.progressText}
             </span>
