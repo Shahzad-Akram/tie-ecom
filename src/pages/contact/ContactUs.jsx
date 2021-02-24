@@ -35,6 +35,10 @@ export const ContactUs = () => {
       .catch((err) => toast.error("Something went Wrong!", 1000));
   };
 
+  const style = {
+    whiteSpace: 'normal'
+  }
+
   return (
     <main className="bg-light" style={{ margin: "0 -12px" }}>
       <section className="pb-5">
@@ -172,6 +176,7 @@ export const ContactUs = () => {
                       rows={6}
                       placeholder="Enter your message"
                       className="input-group-text text-start w-100"
+                      style={style}
                       name="message"
                       ref={register({ required: true })}
                     />

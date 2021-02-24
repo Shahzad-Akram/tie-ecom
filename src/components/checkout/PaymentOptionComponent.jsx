@@ -6,11 +6,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
+
+
 export const PaymentOptionComponent = ({ setCard }) => {
   const [modal, setModal] = useState(false);
   const [cardDetails, setDetails] = useState(null);
+  const [cardList, setCardList] = useState([]);
   const stripe = useStripe();
   const elements = useElements();
+
+
+
+  const settleBrand =  (brand) =>{
+   switch (brand) {
+     case 'visa': return 'http://assets.stickpng.com/images/58482363cef1014c0b5e49c1.png';break;
+     case 'mastercard': return 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/MasterCard_early_1990s_logo.png/1200px-MasterCard_early_1990s_logo.png';break;
+     default:
+       break;
+   }
+
+  }
+
 
   const saveCard = async () => {
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -18,7 +34,11 @@ export const PaymentOptionComponent = ({ setCard }) => {
       card: elements.getElement(CardElement),
     });
     if (!error) {
+      console.log(paymentMethod);
       setDetails(paymentMethod);
+      cardList.push(paymentMethod.card);
+      setCardList(cardList);
+      console.log('card-list', cardList)
       setCard(paymentMethod);
       setModal(false);
     }
@@ -30,11 +50,16 @@ export const PaymentOptionComponent = ({ setCard }) => {
         <CustomModal>
           <header className="d-flex justify-content-between align-items-center mb-3">
             <h6 className="mb-0 fw-bold">Enter card info</h6>
+            {/* 
+            cards data 
+            - card-1 
+            - card-2 
+            */}
             <button
               type="button"
               className="btn p-0"
               onClick={() => setModal(false)}
-            >
+              >
               <h3 className="mb-0">&times;</h3>
             </button>
           </header>
@@ -139,47 +164,50 @@ export const PaymentOptionComponent = ({ setCard }) => {
         slidesToSlide={1}
         swipeable
       >
-        {cardDetails === null ? (
+        {cardList === null ? (
           <h3>No Card Added</h3>
-        ) : (
-          <div className="form-group mb-3 mx-auto px-2" style={{ width: 200 }}>
-            <button
-              type="button"
-              className="p-3 text-start rounded-lg btn btn-bt-box-1 w-100 h-100"
-            >
+        ) : cardList.map(item => {
+        return  <div className="form-group mb-3 mx-auto px-2" style={{ width: 200 }}>
+          <button
+            type="button"
+            className="p-3 text-start rounded-lg btn btn-bt-box-1 w-100 h-100"
+          >
+            <div className="small">
+              <img
+                className="mb-2"
+                height={15}
+                width={30}
+                src={settleBrand(item.brand)}
+                alt=""
+              />
+              <div className="small text-black-50 mb-2">
+                <small>Card Number</small>
+              </div>
               <div className="small">
-                <img
-                  className="mb-2"
-                  height={15}
-                  width={30}
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAOCAYAAAB+UA+TAAAEhklEQVRIidWVXWxUVRSFv3XntkBpYUZqKQ0tqVgpPyp/wohEkBBMNKJGQ3wwhF8fTIQHxCCUONopiJEYNTFRQw3+oOIT6pORiDxACzEoodCIRmyLEIl2qKPT6cy924e5tLRTEI01cSf35uass9de69xz9hHAiLmx8cMU+kbSdQwIg04ZL3Y21W0biP2fwgEowJk/mEkAQQTREI42rPhvpf274eRezuS/nCn/riFXM4ThAsih16jTk8LJ9uRNzIwpvZmYOcTkD0YUjtbvk7S0/6h91tnl3UdLLJ/wWuPt8yPJZM4hSi7jbUF6h5WVO66a23huCmRfwzjiBIlTLmFOJo3jZfKedE3NDKra41filFgEYNhRsJZgdElklPvYPzYJkMneEphMAV8Cp0FTMZ5nd8dNV0/OzgQWICt2YG/IUG2vYN/Lm+6HXFIzbgVTdDC6klmxUlAxQKLLW9R5eOs0M44DmFlOzKxY0eg58dksjLl/y6j8nDbjKKsqF+LTpyHjlwPw1s/lNP40k71W2D/ZAl9qdUvmfDdREMqNG8L6m5RD4p57obAQ4JfBtLiuG4ix87TEktyxo0R+TxiETK2RufHHTfaSRGG42z1DNP65xBrM6nxU5IjNZrySaKpbDxCJ1r+BtNawlxMondNKKwAhm4opVzhUcpxdbfuwdO7I/NZ+isb2TmAePjUYtQgwa3VD8vsakZc1b0SRAMwJkQ1H6Fq8GBsTCRaIg4MZ9aVaBwNRHI7WH8DLjEOqwkiRzX5KofsjpgzGCxKVwBoAHzttpjbEZsFDwPrwvPidGGsx2hN/DN+C2R4kMO6msf0AxrSg7CEs+TTSUrAzmHaDlgDzABg1vo1key0ICtxWV/Q1ouyY0ubOZQ8Muj3Bvsfx3hwMERZwqFhigUHa4KD59qwKQg0CTPZE4vDW1wHC0fhEiTmeEzqZPLTlRCQab0dUhm9rmI5vuw3zfdMyjm/8HT0yOSgyAZiA8SvifTw9RchvwUjjFNzFqnFnaDy7C/w2zH4APIwbwdIsr2hzzbHJIrcVsmPLUvn+7BzSftzCDSwv776C0VoQ5vNcornumcux8O3xnQCGjgGMnr89QtabYOAlD9WcCgjeAzbJ9feBqnzTtq7muib2Wohkxw0AOKHZrKj4qpe48WwlaBTiAiPL23Na/WkIkE7R1VGNo2EYxyB3vfT+Ua+8rOgyg0+yumrnYMby1kKqFeBLTfkgXyOmO9iecLT+XTzvfomxZnwLyzwA8/wPFHI2gaqAExeHZ3OLlTw/CQhhlu5nEkA9FzA3BVxPsuMjGjtaMFsfoCdxVEvuOLUCODImXcrNlpWW9RG5X1yLycBMNUbK8zLHBkK+shswPpSpAvEoPh8HUEtfurrMzAfrzmbsYQ7EsrlkrzoQ05xXc2V1N2YbAQ94ELNZiE9yhGrB/ODqsZMAikTrtxgUmOOkLq5e3oCCDpwcP5x1QccbylgYc8Pp0BGhGWa2LtG09dWhKKPer11tFUgdgDA6WF1ZORQFB0ZkbnwTDtsN9icO1y0eqjp/Anh31Sy27YKTAAAAAElFTkSuQmCC"
-                  alt=""
-                />
-                <div className="small text-black-50 mb-2">
-                  <small>Card Number</small>
-                </div>
-                <div className="small">
-                  <span className="mx-1">****</span>
-                  <span className="mx-1">****</span>
-                  <span className="mx-1">****</span>
-                  <span className="mx-1">{cardDetails.card.last4}</span>
-                </div>
-                {/* <div className="small">
-                  <small>Jhon Doe Smith</small>
-                </div> */}
+                <span className="mx-1">****</span>
+                <span className="mx-1">****</span>
+                <span className="mx-1">****</span>
+                <span className="mx-1">{item.last4}</span>
               </div>
-              <div className="bt-box-1__item ">
-                <button
-                  type="button"
-                  className="p-0 rounded-circle text-white d-flex align-items-center justify-content-center btn btn-danger"
-                  style={{ height: 18, width: 18 }}
-                >
-                  <FontAwesomeIcon size="xs" icon={faTimes} />
-                </button>
-              </div>
-            </button>
-          </div>
-        )}
+              {/* <div className="small">
+                <small>Jhon Doe Smith</small>
+              </div> */}
+            </div>
+            <div className="bt-box-1__item ">
+              <button
+                type="button"
+                className="p-0 rounded-circle text-white d-flex align-items-center justify-content-center btn btn-danger"
+                style={{ height: 18, width: 18 }}
+              >
+                <FontAwesomeIcon size="xs" icon={faTimes} />
+              </button>
+            </div>
+          </button>
+        </div>
+
+
+        }) 
+        }
       </Carousel>
 
       <div className="ms-2">

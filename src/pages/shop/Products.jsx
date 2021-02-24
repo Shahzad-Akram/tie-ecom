@@ -95,6 +95,10 @@ const Products = () => {
                         alt={data.name}
                         onClick={() => setModal(true)}
                       />
+                      <span className="badge bg-primary rounded-pill position-absolute end-0 mt-3">
+                        3For30$
+                      </span>
+                      <br/>
                       <span className="badge bg-warning rounded-pill position-absolute end-0 mt-3">
                         20%
                       </span>
@@ -140,7 +144,9 @@ const Products = () => {
             )}
           </div>
           <div className="text-center pt-3">
-            <button className="btn btn-outline-secondary">Load More</button>
+            {/* <button className="btn btn-outline-secondary">Load More</button> */}
+            <button className="btn btn-outline-secondary">{isLoading ? 'Load More' : 'No more products available'}</button>
+
           </div>
         </div>
       </div>
