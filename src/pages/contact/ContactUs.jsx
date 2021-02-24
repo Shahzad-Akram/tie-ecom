@@ -36,10 +36,7 @@ export const ContactUs = () => {
   };
 
   return (
-    <main
-      className='bg-light position-absolute w-100'
-      style={{ left: '49.99999%', transform: 'translateX(-50%)' }}
-    >
+    <main className='bg-light'>
       <section className='pb-5'>
         <div
           className='d-flex align-items-center justify-content-center text-white text-center'

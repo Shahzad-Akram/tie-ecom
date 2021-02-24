@@ -43,7 +43,7 @@ section {
 
 .loader-skeleton:empty {
   box-sizing: content-box;
-  height: 290px;
+  height: 300px;
   background-color: #ffffff;
   border-radius: 0px 0px 0px 0px;
   background-image: linear-gradient(

@@ -19,7 +19,7 @@ import bow1 from '../../assets/images/bow-1.jpg';
 
 export const HomePage = () => {
   return (
-    <>
+    <div className='container-fluid'>
       <section className='row vh-100 bg-light align-items-end mb-5'>
         <div className='col-3 text-start ps-0 '>
           <img
@@ -465,6 +465,6 @@ export const HomePage = () => {
           </div>
         </Carousel>
       </section>
-    </>
+    </div>
   );
 };

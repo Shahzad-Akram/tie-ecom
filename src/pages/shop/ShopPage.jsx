@@ -25,7 +25,7 @@ export const ShopPage = () => {
   } = useCart();
 
   return (
-    <section>
+    <section className='container-fluid'>
       {/* Checkout Bar Start */}
       <button
         type='button'
