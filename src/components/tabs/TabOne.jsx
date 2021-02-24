@@ -19,8 +19,11 @@ export const TabOne = ({ onClick, data }) => {
           type="button"
           className="btn w-100 bg-light p-3 small rounded-3 mb-4"
         >
-          <div className="d-flex justify-content-between mb-3">
-            <span className="fw-bold">Order No: {data.orderId}</span>
+          <div
+            className="d-flex justify-content-between mb-3"
+            style={{ lineBreak: "anywhere" }}
+          >
+            <span className="fw-bold">Order#{data.orderId}</span>
             <span className="text-capitalize badge bg-dark">
               {cardTabArr.progressText}
             </span>
