@@ -7,6 +7,10 @@ body {
 
 /* === */
 
+.object-fit-cover {
+  object-fit: cover;
+}
+
 .navbar-light .navbar-toggler-icon {
   background-image: url(../assets/menu.png);
 }
