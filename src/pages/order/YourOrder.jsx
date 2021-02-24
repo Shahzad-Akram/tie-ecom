@@ -78,13 +78,11 @@ export const YourOrder = () => {
 
                 {/* Panel Start */}
                 {details === null ? (
-                  <>
-                    <div className='row row-cols-2 row-cols-md-3 row-cols-lg-4 mx-0 overflow-hidden justify-content-around'>
-                      {LoadingArr.map((value) => (
-                        <div className='loader-skeleton'></div>
-                      ))}
-                    </div>
-                  </>
+                  <div className='row row-cols-2 row-cols-md-3 row-cols-lg-4 mx-0 overflow-hidden justify-content-around'>
+                    {LoadingArr.map((value) => (
+                      <div className='loader-skeleton'></div>
+                    ))}
+                  </div>
                 ) : (
                   <OrderDetails order={details} />
                 )}

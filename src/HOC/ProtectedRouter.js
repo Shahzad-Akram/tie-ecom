@@ -30,7 +30,7 @@ const ProtectedRoutes = ({ children }) => {
     <>
       {isAuthenticated && !isLoading ? (
         <>
-          <div className='overflow-auto h-100vh'>{children}</div>
+          <div className='overflow-y-auto h-100vh'>{children}</div>
         </>
       ) : (
         <>

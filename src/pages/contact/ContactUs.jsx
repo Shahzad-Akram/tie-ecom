@@ -36,7 +36,7 @@ export const ContactUs = () => {
   };
 
   return (
-    <main className='bg-light'>
+    <main className='bg-light slide-in-right'>
       <section className='pb-5'>
         <div
           className='d-flex align-items-center justify-content-center text-white text-center'
