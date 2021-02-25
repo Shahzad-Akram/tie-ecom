@@ -11,7 +11,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 export const PaymentOptionComponent = ({ setCard }) => {
   const [modal, setModal] = useState(false);
   const [cardDetails, setDetails] = useState(null);
-  const [cardList, setCardList] = useState([]);
+  // const [cardList, setCardList] = useState([]);
   const stripe = useStripe();
   const elements = useElements();
 
@@ -36,9 +36,9 @@ export const PaymentOptionComponent = ({ setCard }) => {
     if (!error) {
       console.log(paymentMethod);
       setDetails(paymentMethod);
-      cardList.push(paymentMethod.card);
-      setCardList(cardList);
-      console.log('card-list', cardList)
+      // cardList.push(paymentMethod.card);
+      // setCardList(cardList);
+      // console.log('card-list', cardList)
       setCard(paymentMethod);
       setModal(false);
     }
@@ -50,11 +50,6 @@ export const PaymentOptionComponent = ({ setCard }) => {
         <CustomModal>
           <header className="d-flex justify-content-between align-items-center mb-3">
             <h6 className="mb-0 fw-bold">Enter card info</h6>
-            {/* 
-            cards data 
-            - card-1 
-            - card-2 
-            */}
             <button
               type="button"
               className="btn p-0"
@@ -164,12 +159,15 @@ export const PaymentOptionComponent = ({ setCard }) => {
         slidesToSlide={1}
         swipeable
       >
-        {cardList === null ? (
+        {cardDetails === null ? (
           <h3>No Card Added</h3>
-        ) : cardList.map(item => {
-        return  <div className="form-group mb-3 mx-auto px-2" style={{ width: 200 }}>
+        ) : (
+        // cardList.map(item => {
+        // return  
+        <div className="form-group mb-3 mx-auto px-2" style={{ width: 200 }}>
           <button
             type="button"
+            onClick={() => setDetails(null)}
             className="p-3 text-start rounded-lg btn btn-bt-box-1 w-100 h-100"
           >
             <div className="small">
@@ -177,7 +175,7 @@ export const PaymentOptionComponent = ({ setCard }) => {
                 className="mb-2"
                 height={15}
                 width={30}
-                src={settleBrand(item.brand)}
+                src={settleBrand(cardDetails.card.brand)}
                 alt=""
               />
               <div className="small text-black-50 mb-2">
@@ -187,7 +185,7 @@ export const PaymentOptionComponent = ({ setCard }) => {
                 <span className="mx-1">****</span>
                 <span className="mx-1">****</span>
                 <span className="mx-1">****</span>
-                <span className="mx-1">{item.last4}</span>
+                <span className="mx-1">{cardDetails.card.last4}</span>
               </div>
               {/* <div className="small">
                 <small>Jhon Doe Smith</small>
@@ -206,11 +204,11 @@ export const PaymentOptionComponent = ({ setCard }) => {
         </div>
 
 
-        }) 
+        ) 
         }
       </Carousel>
 
-      <div className="ms-2">
+      {/* <div className="ms-2">
         <h6>Do you have a voucher?</h6>
         <div className="row">
           <div className="col-9 col-md-6">
@@ -220,7 +218,7 @@ export const PaymentOptionComponent = ({ setCard }) => {
             <button className="btn btn-dark">Apply</button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="ms-2 my-3 text-black-50 small">
         <small> By making this purchase you agree to our</small>
