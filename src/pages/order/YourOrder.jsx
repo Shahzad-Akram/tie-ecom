@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import Stepper from 'react-stepper-horizontal';
-import { TabOne } from '../../components/tabs/TabOne';
-import OrderDetails from './OrderDetails';
-import axios from 'axios';
-import { useQuery } from 'react-query';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import Stepper from "react-stepper-horizontal";
+import { TabOne } from "../../components/tabs/TabOne";
+import OrderDetails from "./OrderDetails";
+import axios from "axios";
+import { useQuery } from "react-query";
+import { useSelector } from "react-redux";
 
 export const YourOrder = () => {
   const [details, setOrderDetails] = useState(null);
@@ -20,7 +20,8 @@ export const YourOrder = () => {
       .catch((err) => console.log(err));
   };
 
-  const { data, isLoading } = useQuery('orders', getOrders);
+  const { data, isLoading } = useQuery("orders", getOrders);
+  console.log(isLoading, data);
 
   useEffect(() => {
     if (isLoading !== true && data.length !== 0) {
@@ -32,20 +33,20 @@ export const YourOrder = () => {
 
   const LoadingArr = [{}, {}, {}];
   return (
-    <div className='container-fluid'>
-      <section className='pt-5 d-flex align-items-center my-5'>
+    <div className="container-fluid">
+      <section className="pt-5 d-flex align-items-center my-5">
         {isLoading ? (
           <>
             {LoadingArr.map((value) => (
-              <div className='row row-cols-2 row-cols-md-3 row-cols-lg-4 mx-0 overflow-hidden justify-content-around'>
+              <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 mx-0 overflow-hidden justify-content-around">
                 {LoadingArr.map((value) => (
-                  <div className='loader-skeleton'></div>
+                  <div className="loader-skeleton"></div>
                 ))}
               </div>
             ))}
           </>
         ) : (
-          <div className='row w-100 mx-0 px-lg-5'>
+          <div className="row w-100 mx-0 px-lg-5">
             {/* <div className="col col-lg-2 mb-4 mb-lg-0">
             <div className="shadow-sm border p-4 rounded-3">
               <ul className="nav flex-column">
@@ -57,12 +58,12 @@ export const YourOrder = () => {
               </ul>
             </div>
           </div> */}
-            <div className='col-12 col-xl-4 col-xxl-3 my-4 my-xl-0'>
+            <div className="col-12 col-xl-4 col-xxl-3 my-4 my-xl-0">
               <div
-                className='shadow-sm border p-4 rounded-3 scroll-box'
+                className="shadow-sm border p-4 rounded-3 scroll-box"
                 style={{ height: 600 }}
               >
-                <h5 className='fw-bold mb-3'>My Order</h5>
+                <h5 className="fw-bold mb-3">My Order</h5>
                 {/* Tab Start */}
                 {data.map((v) => (
                   <TabOne data={v} onClick={() => setOrderDetails(v)} />
@@ -70,17 +71,17 @@ export const YourOrder = () => {
                 {/* Tab End */}
               </div>
             </div>
-            <div className='col'>
-              <div className='shadow-sm border rounded-3 h-100'>
-                <header className='border-bottom p-3'>
-                  <h5 className='fw-bold mb-0'>Order Details</h5>
+            <div className="col">
+              <div className="shadow-sm border rounded-3 h-100">
+                <header className="border-bottom p-3">
+                  <h5 className="fw-bold mb-0">Order Details</h5>
                 </header>
 
                 {/* Panel Start */}
                 {details === null ? (
-                  <div className='row row-cols-2 row-cols-md-3 row-cols-lg-4 mx-0 overflow-hidden justify-content-around'>
+                  <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 mx-0 overflow-hidden justify-content-around">
                     {LoadingArr.map((value) => (
-                      <div className='loader-skeleton'></div>
+                      <div className="loader-skeleton"></div>
                     ))}
                   </div>
                 ) : (

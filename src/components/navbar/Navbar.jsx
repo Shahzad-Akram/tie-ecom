@@ -55,7 +55,8 @@ export const Navbar = () => {
         showModal(false);
       })
       .catch((err) => {
-        toast.error("Something Went Wrong!", 1000);
+        toast.error(err.response.data.Message, 1000);
+        console.log(err.response.data);
         setLoading(false);
         showModal(false);
       });

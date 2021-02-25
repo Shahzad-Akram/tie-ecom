@@ -37,14 +37,16 @@ export const logOut = (dispatch) => {
 //products functions
 
 export const getProductstype = (key) => {
-  console.log("working", key.queryKey[1], key.queryKey[2], key.queryKey[3]);
+  console.log("working", key.queryKey[7]);
   const type = key.queryKey[1];
   const brand = key.queryKey[2];
   const price = key.queryKey[3];
   const pattern = key.queryKey[4];
   const size = key.queryKey[5];
   const color = key.queryKey[6];
-  const params = {};
+  const params = {
+    limit: key.queryKey[7],
+  };
 
   if (
     brand === null &&
@@ -103,7 +105,7 @@ export const getProductstype = (key) => {
       params: params,
     })
     .then((res) => {
-      return res.data.products;
+      return res.data;
     })
     .catch((err) => {
       // handle error
