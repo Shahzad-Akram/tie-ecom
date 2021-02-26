@@ -18,6 +18,7 @@ const Products = () => {
   const [showCounter, setShowCounter] = useState(false);
   const [count, setCount] = useState(0);
   const [limit, setLimit] = useState(10);
+  const [selectedItem, setSelected] = useState(null);
   const [categoriesbytype, setCategoriesbytype] = useState(null);
   const [categoriesbybrand, setCategoriesbybrand] = useState(null);
   const [categoriesbyprice, setCategoriesbyprice] = useState(null);
@@ -83,7 +84,9 @@ const Products = () => {
   console.log(data);
   return (
     <>
-      {modal ? <ItemModal setModal={() => setModal(false)} /> : null}
+      {modal ? (
+        <ItemModal data={selectedItem} setModal={() => setModal(false)} />
+      ) : null}
       <div className="row">
         <div className="col-lg-3 col-xxl-2 bg-white shadow-sm border">
           <ShopSidebar
@@ -117,19 +120,29 @@ const Products = () => {
                         width="100%"
                         src={data.images[0]}
                         alt={data.name}
-                        onClick={() => setModal(true)}
+                        onClick={() => {
+                          setSelected(data);
+                          setModal(true);
+                        }}
                       />
-                      <span className="badge bg-warning rounded-pill position-absolute end-0 mt-3">
+                      {data.three4Thirty ? (
+                        <span className="badge bg-warning rounded-pill position-absolute end-0 mt-3">
+                          3 for £30
+                        </span>
+                      ) : null}
+
+                      <br />
+                      {/* <span className="badge bg-warning rounded-pill position-absolute end-0 mt-3">
                         20%
-                      </span>
+                      </span> */}
                     </div>
                     <div className="fw-bold">{data.name}</div>
-                    <div className="mb-3">{data.stockQuantity}</div>
-                    <i className="text-decoration-line-through text-danger">
+                    <div className="mb-3">{data.stockQuantity} pc(s)</div>
+                    {/* <i className="text-decoration-line-through text-danger">
                       10$
-                    </i>
+                    </i> */}
                     <div className="d-flex align-items-baseline justify-content-between mt-auto">
-                      <span className="fw-bold">{data.price}</span>
+                      <span className="fw-bold">£{data.price}</span>
                       {/* -- */}
                       <div>
                         {alreadyAdded ? (

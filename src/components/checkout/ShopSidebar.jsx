@@ -85,7 +85,7 @@ export const ShopSidebar = ({
                   className="btn nav-link d-flex flex-wrap align-items-end"
                   onClick={() => {
                     setType(value.value);
-                    setShowToggle(!showToggle);
+                    setShowToggle(true);
                   }}
                 >
                   {showOne ? (
@@ -185,7 +185,7 @@ export const ShopSidebar = ({
             </div>
           </div>
 
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <h6 className="fw-bold mb-3">Brands</h6>
             <div className="mb-3">
               <input
@@ -206,7 +206,7 @@ export const ShopSidebar = ({
               <span className="mx-1">-</span>
               <span>${price}</span>
             </div>
-          </div>
+          </div> */}
           <div>
             <button
               type="button"

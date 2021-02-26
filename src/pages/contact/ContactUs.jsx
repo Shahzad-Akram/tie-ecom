@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { CustomModal } from '../../components/custom/CustomModal';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { CustomModal } from "../../components/custom/CustomModal";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 // Icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelopeOpen,
   faHeadset,
   faHome,
   faLongArrowAltRight,
   faPhone,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 // images
-import imageOne from '../../assets/images/contact.svg';
+import imageOne from "../../assets/images/contact.svg";
 
 export const ContactUs = () => {
   const { register, handleSubmit, watch, errors, reset } = useForm();
@@ -27,101 +27,105 @@ export const ContactUs = () => {
 
   const onSubmit = (data) => {
     axios
-      .post('https://tie-ecommerce.herokuapp.com/feedback', data)
+      .post("https://tie-ecommerce.herokuapp.com/feedback", data)
       .then((res) => {
         reset();
-        toast.info('Message Sent Succefully. Will contact you back.', 1000);
+        toast.info("Message Sent Succefully. Will contact you back.", 1000);
       })
-      .catch((err) => toast.error('Something went Wrong!', 1000));
+      .catch((err) => toast.error("Something went Wrong!", 1000));
+  };
+
+  const style = {
+    whiteSpace: "normal",
   };
 
   return (
-    <main className='bg-light slide-in-right'>
-      <section className='pb-5'>
+    <main className="bg-light slide-in-right">
+      <section className="pb-5">
         <div
-          className='d-flex align-items-center justify-content-center text-white text-center'
+          className="d-flex align-items-center justify-content-center text-white text-center"
           style={{
             paddingTop: 70,
-            height: '70vh',
-            boxShadow: 'inset 0 0 0 1000px rgba(40,40,50,.7)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
+            height: "70vh",
+            boxShadow: "inset 0 0 0 1000px rgba(40,40,50,.7)",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
             backgroundImage: `url(${imageOne})`,
           }}
         >
-          <div className='py-4 px-4 px-md-5 border rounded'>
-            <h1 className='font-weight-light mb-0'>our contacts</h1>
+          <div className="py-4 px-4 px-md-5 border rounded">
+            <h1 className="font-weight-light mb-0">our contacts</h1>
           </div>
         </div>
       </section>
-      <section className='pb-5'>
-        <div className='text-center col-md-10 col-lg-8 col-xl-7 mx-auto mb-5'>
-          <div className='text-dark mb-2'>Send Message</div>
-          <h4 className='font-weight-bold mb-2'>Feel free to contact us.</h4>
+      <section className="pb-5">
+        <div className="text-center col-md-10 col-lg-8 col-xl-7 mx-auto mb-5">
+          <div className="text-dark mb-2">Send Message</div>
+          <h4 className="font-weight-bold mb-2">Feel free to contact us.</h4>
           <p>
             Energistically predominate high-payoff alignments whereas
             maintainable materials timely deliverables. Synergistically leverage
             other's holistic mindshare via high-payoff expertise.
           </p>
         </div>
-        <div className='container'>
-          <div className='row row-cols-1 row-cols-md-2 row-cols-lg-4'>
-            <div className='col mb-4 mb-lg-0'>
-              <div className='bg-white py-4 rounded-lg shadow-sm box-card-3'>
+        <div className="container">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+            <div className="col mb-4 mb-lg-0">
+              <div className="bg-white py-4 rounded-lg shadow-sm box-card-3">
                 <a
-                  href='tel:1234567890'
-                  className='text-center text-dark text-decoration-none'
+                  href="tel:1234567890"
+                  className="text-center text-dark text-decoration-none"
                 >
-                  <div className='mb-3'>
-                    <FontAwesomeIcon icon={faPhone} className='h3 mb-0' />
+                  <div className="mb-3">
+                    <FontAwesomeIcon icon={faPhone} className="h3 mb-0" />
                   </div>
-                  <div className='font-weight-bold mb-2'>Call Us</div>
-                  <div className='text-muted'>
+                  <div className="font-weight-bold mb-2">Call Us</div>
+                  <div className="text-muted">
                     <small>(+1) 234 5678 910</small>
                   </div>
                 </a>
               </div>
             </div>
 
-            <div className='col mb-4 mb-lg-0'>
-              <div className='bg-white py-4 rounded-lg shadow-sm box-card-3'>
-                <Link className='text-center text-dark text-decoration-none'>
-                  <div className='mb-3'>
+            <div className="col mb-4 mb-lg-0">
+              <div className="bg-white py-4 rounded-lg shadow-sm box-card-3">
+                <Link className="text-center text-dark text-decoration-none">
+                  <div className="mb-3">
                     <FontAwesomeIcon
                       icon={faEnvelopeOpen}
-                      className='h3 mb-0'
+                      className="h3 mb-0"
                     />
                   </div>
-                  <div className='font-weight-bold mb-2'>Mail Us</div>
-                  <div className='text-muted'>
+                  <div className="font-weight-bold mb-2">Mail Us</div>
+                  <div className="text-muted">
                     <small>admin@mail.com</small>
                   </div>
                 </Link>
               </div>
             </div>
 
-            <div className='col mb-4 mb-lg-0'>
-              <div className='bg-white py-4 rounded-lg shadow-sm box-card-3'>
-                <Link className='text-center text-dark text-decoration-none'>
-                  <div className='mb-3'>
-                    <FontAwesomeIcon icon={faHome} className='h3 mb-0' />
+            <div className="col mb-4 mb-lg-0">
+              <div className="bg-white py-4 rounded-lg shadow-sm box-card-3">
+                <Link className="text-center text-dark text-decoration-none">
+                  <div className="mb-3">
+                    <FontAwesomeIcon icon={faHome} className="h3 mb-0" />
                   </div>
-                  <div className='font-weight-bold mb-2'>Visit Us</div>
-                  <div className='text-muted'>
+                  <div className="font-weight-bold mb-2">Visit Us</div>
+                  <div className="text-muted">
                     <small>Otaki, 32 Wilson Street</small>
                   </div>
                 </Link>
               </div>
             </div>
 
-            <div className='col mb-4 mb-lg-0'>
-              <div className='bg-white py-4 rounded-lg shadow-sm box-card-3'>
-                <Link className='text-center text-dark text-decoration-none'>
-                  <div className='mb-3'>
-                    <FontAwesomeIcon icon={faHeadset} className='h3 mb-0' />
+            <div className="col mb-4 mb-lg-0">
+              <div className="bg-white py-4 rounded-lg shadow-sm box-card-3">
+                <Link className="text-center text-dark text-decoration-none">
+                  <div className="mb-3">
+                    <FontAwesomeIcon icon={faHeadset} className="h3 mb-0" />
                   </div>
-                  <div className='font-weight-bold mb-2'>Support</div>
-                  <div className='text-muted'>
+                  <div className="font-weight-bold mb-2">Support</div>
+                  <div className="text-muted">
                     <small>Live chart 24/7</small>
                   </div>
                 </Link>
@@ -129,50 +133,51 @@ export const ContactUs = () => {
             </div>
           </div>
 
-          <div className='border-top my-5'></div>
+          <div className="border-top my-5"></div>
 
-          <div className='row'>
-            <div className='col-12 col-lg-6 order-last order-lg-first mt-5 mt-lg-0'>
-              <div className='bg-white p-4 shadow-sm rounded-lg'>
-                <h5 className='mb-4'>Send as a message:</h5>
+          <div className="row">
+            <div className="col-12 col-lg-6 order-last order-lg-first mt-5 mt-lg-0">
+              <div className="bg-white p-4 shadow-sm rounded-lg">
+                <h5 className="mb-4">Send as a message:</h5>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className='mb-3'>
+                  <div className="mb-3">
                     <input
-                      className='input-group-text text-start w-100'
-                      type='name'
-                      placeholder='Your name'
-                      name='name'
+                      className="input-group-text text-start w-100"
+                      type="name"
+                      placeholder="Your name"
+                      name="name"
                       ref={register({ required: true })}
                     />
                   </div>
 
-                  <div className='mb-3'>
+                  <div className="mb-3">
                     <input
-                      className='input-group-text text-start w-100'
-                      type='email'
-                      placeholder='Email address'
-                      name='email'
+                      className="input-group-text text-start w-100"
+                      type="email"
+                      placeholder="Email address"
+                      name="email"
                       ref={register({ required: true })}
                     />
                   </div>
 
-                  <div className='mb-3'>
+                  <div className="mb-3">
                     <input
-                      className='input-group-text text-start w-100'
-                      type='text'
-                      placeholder='Enter Subject'
-                      name='subject'
+                      className="input-group-text text-start w-100"
+                      type="text"
+                      placeholder="Enter Subject"
+                      name="subject"
                       ref={register({ required: true })}
                     />
                   </div>
 
                   <div>
                     <textarea
-                      as='textarea'
+                      as="textarea"
                       rows={6}
-                      placeholder='Enter your message'
-                      className='input-group-text text-start w-100'
-                      name='message'
+                      placeholder="Enter your message"
+                      className="input-group-text text-start w-100"
+                      style={style}
+                      name="message"
                       ref={register({ required: true })}
                     />
                   </div>
@@ -183,11 +188,11 @@ export const ContactUs = () => {
                       label='Email prefered way to contact'
                     /> */}
                   </div>
-                  <div className='mt-5'>
+                  <div className="mt-5">
                     <button
                       block
-                      type='submit'
-                      className='btn btn-dark text-capitalize w-100'
+                      type="submit"
+                      className="btn btn-dark text-capitalize w-100"
                     >
                       Send message
                     </button>
@@ -195,12 +200,12 @@ export const ContactUs = () => {
                 </form>
               </div>
             </div>
-            <div className='col-12 col-lg-6 align-self-center'>
-              <div className='col-lg-9 px-2'>
-                <div className='mb-3 text-dark'>
+            <div className="col-12 col-lg-6 align-self-center">
+              <div className="col-lg-9 px-2">
+                <div className="mb-3 text-dark">
                   <FontAwesomeIcon
                     icon={faLongArrowAltRight}
-                    className='h3 mb-0'
+                    className="h3 mb-0"
                   />
                 </div>
 
@@ -211,8 +216,8 @@ export const ContactUs = () => {
                   change via economically sound relationships.
                 </p>
                 <button
-                  type='button'
-                  className='btn btn-dark text-capitalize d-flex'
+                  type="button"
+                  className="btn btn-dark text-capitalize d-flex"
                   onClick={handleShow}
                 >
                   Get quote
@@ -225,28 +230,28 @@ export const ContactUs = () => {
 
       {modal ? (
         <CustomModal>
-          <header className='d-flex justify-content-between align-items-center mb-3'>
-            <h6 className='mb-0 fw-bold text-dark'>Send New Request</h6>
-            <button type='button' className='btn p-0' onClick={handleClose}>
-              <h3 className='mb-0'>&times;</h3>
+          <header className="d-flex justify-content-between align-items-center mb-3">
+            <h6 className="mb-0 fw-bold text-dark">Send New Request</h6>
+            <button type="button" className="btn p-0" onClick={handleClose}>
+              <h3 className="mb-0">&times;</h3>
             </button>
           </header>
-          <div className='text-center'>
+          <div className="text-center">
             <form>
               <textarea
-                className='form-control input-group-text text-start mb-3'
-                rows='4'
-                placeholder='Enter your message'
+                className="form-control input-group-text text-start mb-3"
+                rows="4"
+                placeholder="Enter your message"
               ></textarea>
               <input
-                className='form-control input-group-text text-start mb-3'
-                type='text'
-                placeholder='Name'
+                className="form-control input-group-text text-start mb-3"
+                type="text"
+                placeholder="Name"
               />
-              <div className='mt-4'>
+              <div className="mt-4">
                 <button
-                  type='submit'
-                  className='btn btn-dark text-capitalize w-100'
+                  type="submit"
+                  className="btn btn-dark text-capitalize w-100"
                 >
                   Send message
                 </button>

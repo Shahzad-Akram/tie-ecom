@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Stepper from "react-stepper-horizontal";
 import { TabOne } from "../../components/tabs/TabOne";
 import OrderDetails from "./OrderDetails";
+import EmptyBox from "../../assets/images-svg/empty.svg";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { useSelector } from "react-redux";
@@ -45,6 +46,20 @@ export const YourOrder = () => {
               </div>
             ))}
           </>
+        ) : data.length === 0 ? (
+          <div
+            className="h-100 w-100 d-flex m-auto align-items-center"
+            style={{
+              minHeight: "70vh",
+            }}
+          >
+            <div className=" mb-3 d-flex flex-column align-items-center h-100 w-100 justify-content-center">
+              <span className="d-flex" style={{ height: 150, width: 150 }}>
+                <img src={EmptyBox} height="100%" width="100%" alt="Empty" />
+              </span>
+              <small className="text-black-50 mt-3">No orders Placed</small>
+            </div>
+          </div>
         ) : (
           <div className="row w-100 mx-0 px-lg-5">
             {/* <div className="col col-lg-2 mb-4 mb-lg-0">
