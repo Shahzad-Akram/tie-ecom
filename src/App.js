@@ -16,6 +16,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { ContactUs } from './pages/contact/ContactUs';
 import { Footer } from './components/footer/Footer';
+import { PrivacyPolicy } from './pages/privacy/PrivacyPolicy';
 
 const stripePromise = loadStripe('pk_test_kXHzy7mkRHnSIevN5jOZyriw00QEAFjbnf');
 
@@ -32,6 +33,7 @@ const App = () => {
           <Switch>
             <Route exact path='/' component={HomePage} />
             <Route exact path='/shop' component={ShopPage} />
+            <Route exact path='/PrivacyPolicy' component={PrivacyPolicy} />
 
             <ProtectedRoutes>
               <Elements stripe={stripePromise}>
