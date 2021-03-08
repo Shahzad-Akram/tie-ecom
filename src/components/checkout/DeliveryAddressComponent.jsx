@@ -16,7 +16,7 @@ export const DeliveryAddressComponent = ({ setAddress }) => {
     setData(data);
     setModal(false);
   };
-  console.log(data);
+
   return (
     <div className="bg-light shadow-sm rounded-3 p-4 mb-4">
       {modal ? (
@@ -36,8 +36,37 @@ export const DeliveryAddressComponent = ({ setAddress }) => {
               <input
                 className="form-control mb-4"
                 type="text"
+                placeholder="Address Line 1"
+                name="ad1"
+                ref={register({ required: true })}
+              />
+              <input
+                className="form-control mb-4"
+                type="text"
+                placeholder="Address Line 2"
+                name="ad2"
+                ref={register({ required: true })}
+              />
+              <input
+                className="form-control mb-4"
+                type="text"
                 placeholder="Enter Country"
                 name="country"
+                ref={register({ required: true })}
+              />
+
+              {/* <input
+                className="form-control mb-4"
+                type="text"
+                placeholder="Enter District"
+                name="district"
+                ref={register({ required: true })}
+              /> */}
+              <input
+                className="form-control mb-4"
+                type="text"
+                placeholder="Enter City"
+                name="city"
                 ref={register({ required: true })}
               />
               <input
@@ -47,28 +76,13 @@ export const DeliveryAddressComponent = ({ setAddress }) => {
                 name="postalCode"
                 ref={register({ required: true })}
               />
-              <input
-                className="form-control mb-4"
-                type="text"
-                placeholder="Enter District"
-                name="district"
-                ref={register({ required: true })}
-              />
-              <input
-                className="form-control mb-4"
-                type="text"
-                placeholder="Enter City"
-                name="city"
-                ref={register({ required: true })}
-              />
-
-              <textarea
+              {/* <textarea
                 className="form-control mb-4"
                 rows="4"
                 placeholder="Enter Address"
                 name="addressDescription"
                 ref={register({ required: true })}
-              ></textarea>
+              ></textarea> */}
               <button type="submit" className="btn btn-dark w-100">
                 Save Address
               </button>
@@ -101,7 +115,7 @@ export const DeliveryAddressComponent = ({ setAddress }) => {
               <>
                 <div className="small font-weight-bold">Home</div>
                 <div className="text-black-50 small">
-                  {data.addressDescription}, {data.city}, {data.country}
+                  {data.ad1},{data.ad2}, {data.city}, {data.country}
                 </div>
               </>
             </button>
