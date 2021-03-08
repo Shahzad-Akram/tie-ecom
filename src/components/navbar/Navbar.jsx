@@ -257,6 +257,16 @@ export const Navbar = () => {
                   ContactUs
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/PrivacyPolicy">
+                  Privacy Policy
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/terms">
+                  Terms & Conditions
+                </NavLink>
+              </li>
             </ul>
             <form className="d-flex justify-content-center position-relative">
               {/* <input
