@@ -124,7 +124,7 @@ export const Checkout = () => {
                       <span className="text-black-50 mr-2 small">
                         <div className="text-capitalize">{item.name}</div>
                       </span>
-                      <span>${item.price}</span>
+                      <span>£{item.price}</span>
                     </div>
                   ))
                 )}
@@ -134,22 +134,22 @@ export const Checkout = () => {
                 <div>
                   <div className="mb-2 text-muted d-flex justify-content-between">
                     <span className="text-capitalize">Cart Total</span>
-                    <span>${cartTotal}</span>
+                    <span>£{cartTotal}</span>
                   </div>
                   <div className="mb-2 text-muted d-flex justify-content-between">
                     <span className="text-capitalize">Delivery Fee</span>
-                    <span>$00.00</span>
+                    <span>£0</span>
                   </div>
                   <div className="mb-2 text-muted d-flex justify-content-between">
                     <span className="text-capitalize">Discount</span>
-                    <span>$00.00</span>
+                    <span>£0</span>
                   </div>
 
                   <div className="mt-3 fw-bold d-flex justify-content-between">
                     <span className="text-capitalize">
                       Total <small>(Incl. VAT)</small>
                     </span>
-                    <span>${cartTotal}</span>
+                    <span>£{cartTotal}</span>
                   </div>
                   <div>
                     {loading ? (

@@ -45,7 +45,7 @@ export const DeliveryAddressComponent = ({ setAddress }) => {
                 type="text"
                 placeholder="Address Line 2"
                 name="ad2"
-                ref={register({ required: true })}
+                ref={register}
               />
               <input
                 className="form-control mb-4"

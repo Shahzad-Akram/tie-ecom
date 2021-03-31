@@ -36,13 +36,13 @@ const App = () => {
             <Route exact path="/shop" component={ShopPage} />
             <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
             <Route exact path="/terms" component={Terms} />
+            <Route exact path="/contact" component={ContactUs} />
 
             <ProtectedRoutes>
               <Elements stripe={stripePromise}>
                 <Route exact path="/checkout" component={Checkout} />
               </Elements>
               <Route exact path="/yourOrder" component={YourOrder} />
-              <Route exact path="/contact" component={ContactUs} />
             </ProtectedRoutes>
           </Switch>
 

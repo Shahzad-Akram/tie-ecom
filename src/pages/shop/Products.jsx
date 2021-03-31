@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { ShopSidebar } from "../../components/checkout/ShopSidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
+import Chip from "@material-ui/core/Chip";
+import Avatar from "@material-ui/core/Avatar";
 
 import { getProductstype, getProducts } from "../../actions";
 
@@ -99,96 +101,151 @@ const Products = () => {
           />
         </div>
         <div className="col bg-light p-4">
-          <div className="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 justify-content-center">
-            {isLoading ? (
-              <>
-                {LoadingArr.map((value) => (
-                  <div className="loader-skeleton"></div>
-                ))}
-              </>
-            ) : (
-              data.products.map((data) => {
-                const alreadyAdded = inCart(data._id);
-                return (
-                  <Link
-                    className="col text-decoration-none small bg-white pb-3 rounded-3 m-3 d-flex flex-column"
-                    key={data._id}
-                  >
-                    <div className="position-relative">
-                      <img
-                        height={240}
-                        width="100%"
-                        src={data.images[0]}
-                        alt={data.name}
-                        onClick={() => {
-                          setSelected(data);
-                          setModal(true);
-                        }}
-                      />
-                      {data.three4Thirty ? (
-                        <span className="badge bg-warning rounded-pill position-absolute end-0 mt-3">
-                          3 for £30
-                        </span>
-                      ) : null}
+          <div className="d-flex flex-column  ">
+            <div className="d-flex justify-content-center">
+              {categoriesbytype !== null ? (
+                <Chip
+                  label={categoriesbytype.toUpperCase()}
+                  onDelete={() => setCategoriesbytype(null)}
+                  className="m-1"
+                  avatar={
+                    <Avatar>{categoriesbytype.charAt(0).toUpperCase()}</Avatar>
+                  }
+                />
+              ) : null}
+              {categoriesbybrand !== null ? (
+                <Chip
+                  onDelete={() => setCategoriesbybrand(null)}
+                  label={categoriesbybrand.toUpperCase()}
+                  className="m-1"
+                  avatar={
+                    <Avatar>{categoriesbybrand.charAt(0).toUpperCase()}</Avatar>
+                  }
+                />
+              ) : null}
+              {categoriesbypattern !== null ? (
+                <Chip
+                  onDelete={() => setCategoriesbypattern(null)}
+                  label={categoriesbypattern.toUpperCase()}
+                  className="m-1"
+                  avatar={
+                    <Avatar>
+                      {categoriesbypattern.charAt(0).toUpperCase()}
+                    </Avatar>
+                  }
+                />
+              ) : null}
+              {categoriesbysize !== null ? (
+                <Chip
+                  onDelete={() => setCategoriesbysize(null)}
+                  label={categoriesbysize.toUpperCase()}
+                  className="m-1"
+                  avatar={
+                    <Avatar>{categoriesbysize.charAt(0).toUpperCase()}</Avatar>
+                  }
+                />
+              ) : null}
+              {/* {categoriesbycolor !== null ? (
+                <Chip
+                  label={categoriesbycolor.toUpperCase()}
+                  className="m-1"
+                  avatar={
+                    <Avatar>{categoriesbycolor.charAt(0).toUpperCase()}</Avatar>
+                  }
+                />
+              ) : null} */}
+            </div>
+            <div className="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 justify-content-center">
+              {isLoading ? (
+                <>
+                  {LoadingArr.map((value) => (
+                    <div className="loader-skeleton"></div>
+                  ))}
+                </>
+              ) : (
+                data.products.map((data) => {
+                  const alreadyAdded = inCart(data._id);
+                  return (
+                    <Link
+                      className="col text-decoration-none small bg-white pb-3 rounded-3 m-3 d-flex flex-column"
+                      key={data._id}
+                    >
+                      <div className="position-relative">
+                        <img
+                          height={240}
+                          width="100%"
+                          src={data.images[0]}
+                          alt={data.name}
+                          onClick={() => {
+                            setSelected(data);
+                            setModal(true);
+                          }}
+                        />
+                        {data.three4Thirty ? (
+                          <span className="badge bg-warning rounded-pill position-absolute end-0 mt-3">
+                            3 for £30
+                          </span>
+                        ) : null}
 
-                      <br />
-                      {/* <span className="badge bg-warning rounded-pill position-absolute end-0 mt-3">
+                        <br />
+                        {/* <span className="badge bg-warning rounded-pill position-absolute end-0 mt-3">
                         20%
                       </span> */}
-                    </div>
-                    <div className="fw-bold">{data.name}</div>
-                    <div className="mb-3">{data.stockQuantity} pc(s)</div>
-                    {/* <i className="text-decoration-line-through text-danger">
+                      </div>
+                      <div className="fw-bold">{data.name}</div>
+                      <div className="mb-3">{data.stockQuantity} pc(s)</div>
+                      {/* <i className="text-decoration-line-through text-danger">
                       10$
                     </i> */}
-                    <div className="d-flex align-items-baseline justify-content-between mt-auto">
-                      <span className="fw-bold">£{data.price}</span>
-                      {/* -- */}
-                      <div>
-                        {alreadyAdded ? (
-                          <button
-                            className="btn btn-sm btn-outline-dark rounded-pill m-2"
-                            disabled
-                          >
-                            <FontAwesomeIcon icon={faCartArrowDown} />
-                            <span className="ms-2 small fw-bold">
-                              Added to Cart
-                            </span>
-                          </button>
-                        ) : (
-                          <button
-                            className="btn btn-sm btn-outline-dark rounded-pill m-2"
-                            onClick={() => {
-                              setCounterButton(false);
-                              //setShowCounter(true);
-                              handleClickCart(data);
-                            }}
-                          >
-                            <FontAwesomeIcon icon={faCartPlus} />
-                            <span className="ms-2 small fw-bold">Cart</span>
-                          </button>
-                        )}
+                      <div className="d-flex align-items-baseline justify-content-between mt-auto">
+                        <span className="fw-bold">£{data.price}</span>
+                        {/* -- */}
+                        <div>
+                          {alreadyAdded ? (
+                            <button
+                              className="btn btn-sm btn-outline-dark rounded-pill m-2"
+                              disabled
+                            >
+                              <FontAwesomeIcon icon={faCartArrowDown} />
+                              <span className="ms-2 small fw-bold">
+                                Added to Cart
+                              </span>
+                            </button>
+                          ) : (
+                            <button
+                              className="btn btn-sm btn-outline-dark rounded-pill m-2"
+                              onClick={() => {
+                                setCounterButton(false);
+                                //setShowCounter(true);
+                                handleClickCart(data);
+                              }}
+                            >
+                              <FontAwesomeIcon icon={faCartPlus} />
+                              <span className="ms-2 small fw-bold">Cart</span>
+                            </button>
+                          )}
+                        </div>
+                        {/* -- */}
                       </div>
-                      {/* -- */}
-                    </div>
-                  </Link>
-                );
-              })
-            )}
-          </div>
-          <div className="text-center pt-3">
-            {limit >= data?.count ? (
-              <button disabled className="btn btn-outline-secondary">
-                No more Products
-              </button>
-            ) : (
-              <button
-                onClick={() => setLimit(limit + 5)}
-                className="btn btn-outline-secondary"
-              >
-                Load More
-              </button>
-            )}
+                    </Link>
+                  );
+                })
+              )}
+            </div>
+            <div className="text-center pt-3">
+              {limit >= data?.count ? (
+                <button disabled className="btn btn-outline-secondary">
+                  No more Products
+                </button>
+              ) : (
+                <button
+                  onClick={() => setLimit(limit + 5)}
+                  className="btn btn-outline-secondary"
+                >
+                  Load More
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>

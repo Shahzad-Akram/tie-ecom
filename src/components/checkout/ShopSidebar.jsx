@@ -377,9 +377,9 @@ export const ShopSidebar = ({
                 </div>
                 <div className="d-flex align-items-end fw-bold">
                   <span className="small text-black-50 me-1">Price:</span>
-                  <span>$00.00</span>
+                  <span>£00.00</span>
                   <span className="mx-1">-</span>
-                  <span>${price}</span>
+                  <span>£{price}</span>
                 </div>
               </div>
               <div>

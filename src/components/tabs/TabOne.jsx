@@ -7,7 +7,7 @@ const cardTabArr = [
     progressText: "Order On the way",
     date: "7th April 2019",
     time: "17th April",
-    price: "$230",
+    price: "£230",
   },
 ];
 
@@ -43,7 +43,7 @@ export const TabOne = ({ onClick, data }) => {
 
           <div className="d-flex justify-content-between small fw-bold">
             <span className="text-capitalize">Total Price:</span>
-            <span className="text-capitalize">${data.total}</span>
+            <span className="text-capitalize">£{data.total}</span>
           </div>
         </button>
       </div>

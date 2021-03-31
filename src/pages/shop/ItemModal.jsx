@@ -19,8 +19,8 @@ const ItemModal = ({ setModal, data }) => {
         "https://s3.amazonaws.com/redqteam.com/pickbazar/Roadstar_solid_top.jpg",
       name: "Roadster Women Solid Top",
       stock: "1 pc(s)",
-      minusPrice: "$15",
-      price: "$12",
+      minusPrice: "£15",
+      price: "£12",
       discount: "20%",
     },
   ];
