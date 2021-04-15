@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { CustomModal } from "../custom/CustomModal";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 
 export const DeliveryAddressComponent = ({ setAddress }) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const [modal, setModal] = useState(false);
   const [data, setData] = useState(null);
+  const user = useSelector((state) => state.user.user);
+
+  console.log(user);
 
   const onSubmit = (data) => {
     setAddress(data);
     setData(data);
     setModal(false);
   };
+
+  // useEffect(() => {
+  //   setAddress(user.address);
+  //   setData(user.address);
+  // });
 
   return (
     <div className="bg-light shadow-sm rounded-3 p-4 mb-4">
@@ -37,16 +46,16 @@ export const DeliveryAddressComponent = ({ setAddress }) => {
                 className="form-control mb-4"
                 type="text"
                 placeholder="Address Line 1"
-                name="ad1"
+                name="addressDescription"
                 ref={register({ required: true })}
               />
-              <input
+              {/* <input
                 className="form-control mb-4"
                 type="text"
                 placeholder="Address Line 2"
                 name="ad2"
                 ref={register}
-              />
+              /> */}
               <input
                 className="form-control mb-4"
                 type="text"
@@ -115,7 +124,7 @@ export const DeliveryAddressComponent = ({ setAddress }) => {
               <>
                 <div className="small font-weight-bold">Home</div>
                 <div className="text-black-50 small">
-                  {data.ad1},{data.ad2}, {data.city}, {data.country}
+                  {data.addressDescription}, {data.city}, {data.country}
                 </div>
               </>
             </button>

@@ -378,110 +378,111 @@ export const HomePage = () => {
                 </div>
               ))
           )}
-          {/* <div className="small mx-auto" style={{ width: 270 }}>
-            <div className="mb-3 position-relative es-btn-overlay-1">
-              <Link>
-                <img
-                  width="100%"
-                  height={300}
-                  src="https://elementor.thembay.com/kera/wp-content/uploads/2019/12/product-41-600x700.jpg"
-                  alt="pic"
-                />
-              </Link>
-              <div className="es-overlay-1 position-absolute bottom-0 d-flex bg-white w-100 d-flex justify-content-around shadow-sm">
-                <Link className="h3">
-                  <FontAwesomeIcon icon={faShoppingBag} />
-                </Link>
-                <Link className="h3">
-                  <FontAwesomeIcon icon={faEye} />
-                </Link>
-              </div>
-            </div>
-            <Link className="text-decoration-none">
-              Reversible Black Leather Belt
-            </Link>
-            <div className="mt-1 mb-2 d-flex align-items-center">
-              <span className="small">
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-black-50" />
-                <FontAwesomeIcon icon={faStar} className="text-black-50" />
-              </span>
-              <span className="ms-2 text-black-50">2</span>
-            </div>
-            <b>£ 146.18 - £ 153.10</b>
-          </div>
-
-          <div className="small mx-auto" style={{ width: 270 }}>
-            <div className="mb-3 position-relative es-btn-overlay-1">
-              <Link>
-                <img
-                  width="100%"
-                  height={300}
-                  src="https://elementor.thembay.com/kera/wp-content/uploads/2019/12/product-41-600x700.jpg"
-                  alt="pic"
-                />
-              </Link>
-              <div className="es-overlay-1 position-absolute bottom-0 d-flex bg-white w-100 d-flex justify-content-around shadow-sm">
-                <Link className="h3">
-                  <FontAwesomeIcon icon={faShoppingBag} />
-                </Link>
-                <Link className="h3">
-                  <FontAwesomeIcon icon={faEye} />
-                </Link>
-              </div>
-            </div>
-            <Link className="text-decoration-none">
-              Reversible Black Leather Belt
-            </Link>
-            <div className="mt-1 mb-2 d-flex align-items-center">
-              <span className="small">
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-black-50" />
-                <FontAwesomeIcon icon={faStar} className="text-black-50" />
-              </span>
-              <span className="ms-2 text-black-50">2</span>
-            </div>
-            <b>£ 146.18 - £ 153.10</b>
-          </div>
-
-          <div className="small mx-auto" style={{ width: 270 }}>
-            <div className="mb-3 position-relative es-btn-overlay-1">
-              <Link>
-                <img
-                  width="100%"
-                  height={300}
-                  src="https://elementor.thembay.com/kera/wp-content/uploads/2019/12/product-41-600x700.jpg"
-                  alt="pic"
-                />
-              </Link>
-              <div className="es-overlay-1 position-absolute bottom-0 d-flex bg-white w-100 d-flex justify-content-around shadow-sm">
-                <Link className="h3">
-                  <FontAwesomeIcon icon={faShoppingBag} />
-                </Link>
-                <Link className="h3">
-                  <FontAwesomeIcon icon={faEye} />
-                </Link>
-              </div>
-            </div>
-            <Link className="text-decoration-none">
-              Reversible Black Leather Belt
-            </Link>
-            <div className="mt-1 mb-2 d-flex align-items-center">
-              <span className="small">
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                <FontAwesomeIcon icon={faStar} className="text-black-50" />
-                <FontAwesomeIcon icon={faStar} className="text-black-50" />
-              </span>
-              <span className="ms-2 text-black-50">2</span>
-            </div>
-            <b>£ 146.18 - £ 153.10</b>
-          </div> */}
+        </Carousel>
+      </section>
+      <section className="mb-5 container py-5">
+        <h2 className="mb-5 text-center"> 3 for 30£ Sale </h2>
+        <Carousel
+          additionalTransfrom={0}
+          arrows
+          autoPlaySpeed={3000}
+          centerMode={false}
+          className=""
+          containerClass="container-with-dots"
+          dotListClass=""
+          draggable
+          focusOnSelect={false}
+          infinite
+          itemClass=""
+          keyBoardControl
+          minimumTouchDrag={80}
+          renderButtonGroupOutside={false}
+          renderDotsOutside={false}
+          responsive={{
+            desktop: {
+              breakpoint: {
+                max: 3000,
+                min: 1024,
+              },
+              items: 4,
+              partialVisibilityGutter: 40,
+            },
+            mobile: {
+              breakpoint: {
+                max: 579,
+                min: 0,
+              },
+              items: 1,
+              partialVisibilityGutter: 30,
+            },
+            tabletSmall: {
+              breakpoint: {
+                max: 867,
+                min: 579,
+              },
+              items: 2,
+              partialVisibilityGutter: 10,
+            },
+            tablet: {
+              breakpoint: {
+                max: 1195,
+                min: 867,
+              },
+              items: 3,
+              partialVisibilityGutter: 30,
+            },
+          }}
+          showDots={false}
+          sliderClass=""
+          slidesToSlide={1}
+          swipeable
+        >
+          {isLoading ? (
+            <> loading </>
+          ) : (
+            data
+              .filter((v) => v.three4Thirty === true)
+              .map((v) => (
+                <div className="small mx-auto" style={{ width: 270 }}>
+                  <div className="mb-3 position-relative es-btn-overlay-1">
+                    <Link>
+                      <img
+                        width="100%"
+                        height={300}
+                        src={v.images[0]}
+                        alt="pic"
+                      />
+                    </Link>
+                    <div className="es-overlay-1 position-absolute bottom-0 d-flex bg-white w-100 d-flex justify-content-around shadow-sm">
+                      <Link className="h3">
+                        <FontAwesomeIcon icon={faShoppingBag} />
+                      </Link>
+                      <Link className="h3">
+                        <FontAwesomeIcon icon={faEye} />
+                      </Link>
+                    </div>
+                  </div>
+                  <Link className="text-decoration-none">{v.name}</Link>
+                  <div className="mt-1 mb-2 d-flex align-items-center">
+                    <span className="small">
+                      <FontAwesomeIcon icon={faStar} className="text-warning" />
+                      <FontAwesomeIcon icon={faStar} className="text-warning" />
+                      <FontAwesomeIcon icon={faStar} className="text-warning" />
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        className="text-black-50"
+                      />
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        className="text-black-50"
+                      />
+                    </span>
+                    <span className="ms-2 text-black-50">2</span>
+                  </div>
+                  <b>£{v.price}</b>
+                </div>
+              ))
+          )}
         </Carousel>
       </section>
     </div>

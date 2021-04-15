@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useCart } from "react-use-cart";
 import axios from "axios";
@@ -22,6 +22,7 @@ export const Checkout = () => {
   const [address, setAddress] = useState(null);
   const [contact, setContact] = useState(null);
   const [card, setCard] = useState(null);
+  const userAddress = useSelector((state) => state.user.user.address);
 
   const {
     isEmpty,
@@ -47,10 +48,8 @@ export const Checkout = () => {
     } else if (address === null && contact === null && card === null) {
       toast.warn("Please complete all the details!", 1000);
     } else {
-      const fullAddress = address.ad1.concat(address.ad2);
-
       const data = {
-        addressDescription: fullAddress,
+        addressDescription: address.addressDescription,
         city: address.city,
         country: address.country,
         district: address.district,
@@ -79,8 +78,13 @@ export const Checkout = () => {
     }
   };
 
+  // useEffect(() => {
+  //   setAddress(userAddress);
+  //   console.log(address);
+  // });
+
   window.addEventListener("scroll", changeBackground);
-  console.log(cartTotal);
+
   return (
     <div className="container-fluid">
       <section className="container">
